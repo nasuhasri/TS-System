@@ -34,7 +34,7 @@
             <ul class="nav" id="main-menu">
 				<li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					<p style="font-size:18; font-color:white;"><?php echo " " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
+					<p style="font-size:18; color:white;"><?php echo " " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
 				</li>
                 <li>
                     <a class="active-menu"  href="homepageSupp.php"><i class="fa fa-dashboard fa-3x"></i> Home</a>
