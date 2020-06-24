@@ -39,203 +39,91 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 				$pass = password_hash($vuserpass, PASSWORD_BCRYPT);
 
-				$insert = "INSERT INTO `employee`(`empid`,`empfname`,`emplname`,`empEmail`,`emptellno`,`empsalary`,`emppwd`) VALUES('$vuserid','$vuserfname','$vuserlname','$vuseremail','$vusertell','$vusersalary','$pass')";
+				$insert = "INSERT INTO `employee`(`empid`,`empfname`,`emplname`,`empEmail`,`emptellno`,`empsalary`,`emppwd`) VALUES('$vuserid','$vuserfname','$vuserlname','$vuseremail','$vusertell','$vusersalary','$vuserpass')";
 
 				if(mysqli_query($conn, $insert))
 				{
-					$msg = "User Inserted";
+					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
 				}
 				else
 				{
-					$msg = "Not Inserted";
+					echo "<script type='text/javascript'>alert('Failed!')</script>";
 				}
 
 			}
 			else
 			{
-				$msg = "Empty Field Found";
+				echo "<script type='text/javascript'>alert('Empty Data!')</script>";
 			}
 
 		}
 		else
 		{
-			$msg = "Please Check Term And Condition";
+			echo "<script type='text/javascript'>alert('Please check term and condition!')</script>";
 		}
 
 	}
 
 }
 
-?><!DOCTYPE html>
+?>
+	
+<!doctype html>
 <html lang="en">
 <head>
-<link rel="shortcut icon" href="images/favicon.ico" />
-</head>
-
-<head>
-
-<title>Tomatus Station</title>
-
-<!--
-
-Template 2099 Scenic
-
-http://www.tooplate.com/view/2099-scenic
-
--->
-
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-
-<link rel="stylesheet" href="css/owl.theme.css">
-<link rel="stylesheet" href="css/owl.carousel.css">
-
-<!-- MAIN CSS -->
-<link rel="stylesheet" href="css/tooplate-style.css">
-
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Register User</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 
-<body>
-
-<!-- PRE LOADER -->
-<div class="preloader">
-     <div class="spinner">
-          <span class="sk-inner-circle"></span>
-     </div>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-5">
+			<h1>Register Now</h1>
+			<form method="post">
+				<div class="form-group">
+					<label>User ID</label>
+					<input type="text" name="empID" placeholder="Enter ID" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User First Name</label>
+					<input type="text" name="empFName" placeholder="Enter First Name" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User Last Name</label>
+					<input type="text" name="empLName" placeholder="Enter Last Name" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User Email</label>
+					<input type="text" name="empEml" placeholder="Enter Email" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User Telephone Number</label>
+					<input type="text" name="empTell" placeholder="Enter Telephone Number" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User Salary</label>
+					<input type="text" name="empSal" placeholder="Enter Salary" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>User Password</label>
+					<input type="Password" name="password" placeholder="*******" class="form-control">
+				</div>
+				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
+				<br>
+				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
+				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='welcomepage.php'" />
+			</form>
+			<h3 style="color:red;"><?php echo @$msg; ?></h3>
+		</div>
+	</div>
 </div>
 
 
-<!-- MENU -->
-<div class="navbar custom-navbar navbar-fixed-top" role="navigation">
-     <div class="container">
 
-          <!-- NAVBAR HEADER -->
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <!-- lOGO -->
-               <a href="index.html" class="navbar-brand">Tomatus Station Melaka</a>
-          </div>
-
-          <!-- MENU LINKS -->
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#more" class="smoothScroll">About</a></li>  
-                    <li><a href="#more" class="dropdown">Contact</a></li>
-               </ul>
-          </div>
-
-     </div>
-</div>
-
-
-<!-- HOME -->
-<section id="home" class="parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-8 col-sm-12">
-                    <div class="home-text">
-						 <article> 
-							<h1 style="text-align:left">Hello, Welcome</h1>
-							
-			           </article> 
-                    </div>
-               </div>
-
-          </div>
-     </div>
-
-     <!-- Video -->
-     <video controls autoplay loop muted>
-          <source src="videos/video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-     </video>
-</section>
-
-
-<!-- ABOUT -->
-<section id="about" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <div class="about-info">
-							<form method="POST">
-								<div class="form-group">
-									<label>User ID</label>
-									<input type="text" name="empID" placeholder="Enter ID" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User First Name</label>
-									<input type="text" name="empFName" placeholder="Enter First Name" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User Last Name</label>
-									<input type="text" name="empLName" placeholder="Enter Last Name" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User Email</label>
-									<input type="text" name="empEml" placeholder="Enter Email" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User Telephone Number</label>
-									<input type="text" name="empTell" placeholder="Enter Telephone Number" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User Salary</label>
-									<input type="text" name="empSal" placeholder="Enter Salary" class="form-control">
-								</div>
-								<div class="form-group">
-									<label>User Password</label>
-									<input type="Password" name="password" placeholder="*******" class="form-control">
-								</div>
-								<input type="checkbox" name="term"> I Follow All Term & Condition <br>
-								
-								<table>
-										<tr>
-											<td>
-											<input type="submit"style="background-color:blue;color:white;width:150px; height:40px;" value="Submit">
-											<input type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back">
-											</td>
-										</tr>
-									</table>
-							</form>
-							<h3 style="color:red;"><?php echo @$msg; ?></h3>
-                    </div>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<footer>
-<?php include 'footer.php';?>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
-<script src="js/modernizr.custom.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/custom.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

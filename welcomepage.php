@@ -59,7 +59,7 @@ http://www.tooplate.com/view/2099-scenic
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php" class="smoothScroll">Home</a></li>
-                    <li><a href="" class="smoothScroll">Sign Up</a></li>  
+                    <li><a href="signup.php" class="smoothScroll">Sign Up</a></li>  
                </ul>
           </div>
 
