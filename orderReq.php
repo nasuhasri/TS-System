@@ -88,7 +88,7 @@
                         we have put connection inside header page */
                         $conn = OpenCon();
 
-                        /**Value is staffid coming from supplierloginaction.php**/
+                        /**Value suppID coming from supplierloginaction.php**/
 	                    $suppID = $_SESSION['login_supplier'];
                                         
                         //get page number
