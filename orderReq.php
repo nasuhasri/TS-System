@@ -113,6 +113,7 @@
                                 where op.productid = p.productid
                                 and o.orderid = op.orderid
                                 and p.supplierid = s.supplierid
+                                and o.orderstatus = 'PENDING'
                                 and s.supplierid = $suppID
                                 limit $page1, 4";
                         $result = $conn->query($sql);
