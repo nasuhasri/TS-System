@@ -109,9 +109,11 @@
                         }
                                         
                         $sql = "select *
-                                from `order_product` op, `product` p, `orders` o
+                                from `order_product` op, `product` p, `orders` o, `supplier` s
                                 where op.productid = p.productid
                                 and o.orderid = op.orderid
+                                and p.supplierid = s.supplierid
+                                and s.supplierid = $suppID
                                 limit $page1, 4";
                         $result = $conn->query($sql);
                                         
