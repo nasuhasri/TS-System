@@ -104,7 +104,7 @@ font-size: 16px;"><a href="tomatus.php"class="btn btn-danger square-btn-adjust">
 					echo "<th>Product Name</th>";
 					echo "<th>Product Price</th>";
 					echo "<th>Date Manufactured</th>";
-					//echo "<th>Supplier ID</th>";
+					echo "<th>Supplier ID</th>";
 				echo"</tr>";
 
 				if($result-> num_rows > 0) {
