@@ -156,7 +156,7 @@ font-size: 16px;"><a href="tomatus.php"class="btn btn-danger square-btn-adjust">
                                     
                         //insert into url
                         for($pageno=1; $pageno<=$count; $pageno++){
-                            ?><a href = "displayorderfromdb1.php?page=<?php echo $pageno;?>"style="text-decoration: none"><?php echo $pageno. " "; ?></a><?php		
+                            ?><a href = "displayorderfromdb.php?page=<?php echo $pageno;?>"style="text-decoration: none"><?php echo $pageno. " "; ?></a><?php		
                         }
                                     
                                 

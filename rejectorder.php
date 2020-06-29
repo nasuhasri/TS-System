@@ -145,10 +145,10 @@
 							$mail->send();
 							echo '<br>Message has been sent';
 
-							$sql = "delete from orders where orderid = $orderid";
-							// $sql = "UPDATE `orders` o
-							// 		SET o.orderstatus='CANCELED'
-							// 		WHERE o.orderid=$orderid";
+							//$sql = "delete from orders where orderid = $orderid";
+							$sql = "UPDATE `orders` o
+									SET o.orderstatus='REJECTED'
+									WHERE o.orderid=$orderid";
 							$result = $conn->query($sql);
 							
 							if(! $result){

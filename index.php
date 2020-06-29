@@ -32,14 +32,14 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Tomatus Station</a> 
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
-				  <a href="" class="btn btn-danger square-btn-adjust">Register</a> </div>
-	   </nav>   
+            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+                <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
+                <a href="" class="btn btn-danger square-btn-adjust">Register</a> 
+            </div>
+        </nav>
+           
            <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
@@ -71,9 +71,9 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                     </li>	
                 </ul>
                
-            </div>
-            
-        </nav>  
+            </div>            
+        </nav>
+
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -82,60 +82,62 @@ font-size: 16px;"><a href="logout.php" class="btn btn-danger square-btn-adjust">
                      <h1>Order Management System</h1>   
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
+                </div>
+
+                <!-- /. ROW  -->
+                <hr />
                 <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">120 New</p>
-                    <p class="text-muted">Messages</p>
-                </div>
-             </div>
-		     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
-                    <i class="fa fa-bars"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">30 Tasks</p>
-                    <p class="text-muted">Remaining</p>
-                </div>
-             </div>
-		     </div>
+			            <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-red set-icon">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+
+                            <div class="text-box" >
+                                <p class="main-text">120 New</p>
+                                <p class="text-muted">Messages</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">240 New</p>
-                    <p class="text-muted">Notifications</p>
-                </div>
-             </div>
-		     </div>
+			            <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-green set-icon">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                            <div class="text-box" >
+                                <p class="main-text">30 Tasks</p>
+                                <p class="text-muted">Remaining</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-rocket"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">3 Orders</p>
-                    <p class="text-muted">Pending</p>
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-blue set-icon">
+                                <i class="fa fa-bell-o"></i>
+                            </span>
+                            <div class="text-box" >
+                                <p class="main-text">240 New</p>
+                                <p class="text-muted">Notifications</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-brown set-icon">
+                                <i class="fa fa-rocket"></i>
+                            </span>
+                            <div class="text-box" >
+                                <p class="main-text">3 Orders</p>
+                                <p class="text-muted">Pending</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-		     </div>
-			</div>
-      
-                        
+            </div>
         </div>
-    
-                </div>
       
                 </div>            
     

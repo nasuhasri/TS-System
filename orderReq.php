@@ -21,9 +21,9 @@
         <script type="text/javascript">
             function confirmCancel($orderid)
             {
-                if(confirm('Are you sure you want to cancel the order'))
+                if(confirm('Are you sure you want to reject the order?'))
                 {
-                    window.location.href='cancelorder.php?orderid=' + $orderid;
+                    window.location.href='rejectorder.php?orderid=' + $orderid;
                 }
                 else {
                     return false;
@@ -160,7 +160,7 @@
                                     echo "<td> $totalPrice </td>";
                                     echo "<td> $status </td>";
                                     echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE</button>
-                                                <button onclick="confirmCancel('<?php echo $orderid ?>')"> CANCEL </button> <?php "</td>";
+                                                <button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT </button> <?php "</td>";
                                 echo "</tr>";
                             }
                         }

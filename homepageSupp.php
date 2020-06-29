@@ -64,7 +64,7 @@ font-size: 16px;"><a href="tomatus.php"class="btn btn-danger square-btn-adjust">
                     <div class="col-md-12">
                      <h1>Order Management System</h1>   
                          <nav>
-								<p style="font-size:25px;font-color: white;"><?php echo "Hello " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
+								<p style="font-size:25px; color: Black;"><?php echo "Hello " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
 							 </nav>
                     </div>
                 </div>              
@@ -103,11 +103,15 @@ font-size: 16px;"><a href="tomatus.php"class="btn btn-danger square-btn-adjust">
                     else {
                         $page1 = ($page*4)-4;						
                     }
+
+                    $suppID = $_SESSION['login_supplier'];
                                     
                     $sql = "select count(op.orderid) as totalorder
-                            from `order_product` op, `product` p, `orders` o
+                            from `order_product` op, `product` p, `orders` o, `supplier` s
                             where op.productid = p.productid
                             and o.orderid = op.orderid
+                            and p.supplierid = s.supplierid
+                            and s.supplierid = $suppID
                             limit $page1, 4";
                     $result = $conn->query($sql);
                                     
