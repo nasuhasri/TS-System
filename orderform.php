@@ -105,9 +105,9 @@
 				<article>
 					<h2 style = "text-align: center"> Order Product Form</h2> <br>
 					<form action="insertorderaction.php" id="form" method="POST">					
-					<table style="text-align: left">
+					<table class="table table-borderless">
 						<tr>
-							<td>Supplier</td>
+							<td colspan="2" align="center">Supplier</td>
 							<td>
 								<select id="supplier" name="supplier">
 									<option>Select</option>
@@ -125,7 +125,7 @@
 						</tr>
 
 						<tr>
-							<td>Product Name</td>
+							<td colspan="2" align="center">Product Name</td>
 							<td>
 								<select id="productname" name="productname">
 									<option>Select</option>
@@ -136,9 +136,11 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Product Quantity</td>
+							<td colspan="2" align="center">Product Quantity</td>
 							<td><input type="int" name="productqty" maxlength="10" placeholder="10" required><br></td>
 						</tr>
+					</table>
+					<table class="table table-borderless">
 						<tr>
 							<td colspan="2" align="center">
 								<input type="submit" value="Submit" name="submit" onclick="confirmSubmit()">

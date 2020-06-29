@@ -22,6 +22,21 @@
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
         </head>
+        <!-- Style for a href in content -->
+        <style>
+			.content a:link, a:visited {
+				background-color: #f44336;
+				color: white;
+				padding: 14px 25px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			a:hover, a:active {
+				background-color: red;
+			}
+		</style>
         <header>
             <?php include 'header.php'; ?>
         </header>
@@ -70,6 +85,20 @@
 			<div class = "">			
                 <article>
                     <h2 style="text-align:center">Invoices</h2>
+                    <table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>Invoice ID</th>
+								<th>Invoice Date</th>
+								<th>Order ID</th>
+								<th>Product ID</th>
+								<th>Product Name</th>
+                                <th>Product Price(RM)</th>
+                                <th>Product Quantity</th>
+                                <th>Total Price(RM)</th>
+							</tr>
+                        </thead>
+
                     <?php
                         $conn = OpenCon();
 
@@ -106,18 +135,6 @@
                         //$sql = "SELECT * FROM `invoice` i";
                         $result = $conn->query($sql);
 
-                        echo "<table>";
-                            echo "<tr>";
-                                echo "<th>Invoice ID</th>";
-                                echo "<th>Invoice Date</th>";
-                                echo "<th>Order ID</th>";
-                                echo "<th>Product ID</th>";
-                                echo "<th>Product Name</th>";
-                                echo "<th>Product Price(RM)</th>";
-                                echo "<th>Product Quantity</th>";
-                                echo "<th>Total Price(RM)</th>";
-                            echo"</tr>";
-
                         if($result->num_rows > 0){
                             while($row = $result->fetch_assoc()){
                                 $invID = $row["invoiceid"];
@@ -152,7 +169,7 @@
                         $row = $result2 ->fetch_row();
                         $count = ceil($row[0]/4);
                         for($pageno=1;$pageno<=$count;$pageno++){
-                            ?><a href="invoicesSupp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
+                            ?><a href="invoicesEmp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
                         }
 
                         CloseCon($conn);

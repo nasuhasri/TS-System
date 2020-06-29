@@ -75,23 +75,23 @@
                                 <!-- style="border:1px solid black; margin-left:auto; margin-right:auto;" -->
 								<table class="table table-borderless">
                                     <tr> 
-                                        <td>Product ID</td>
+                                        <td colspan="2" align="center">Product ID</td>
                                         <td><input type="text" name="prodID" maxlength="50" placeholder="2001322" required></td>
                                     </tr>
 									<tr> 
-										<td>Product Name</td>
+										<td colspan="2" align="center">Product Name</td>
 										<td><input type="text" name="fullname" maxlength="50" placeholder="Choco Jar"></td>
 									</tr>
 									<tr> 
-										<td>Product Price</td>
+										<td colspan="2" align="center">Product Price</td>
 										<td> <input type="decimal" name="price" maxlength="100" placeholder="23.50"></td>
 									</tr>
 									<tr> 
-										<td>Product Date Manufactured</td>
+										<td colspan="2" align="center">Product Date Manufactured</td>
 										<td> <input type="date" name="dateManu" required></td>
 									</tr>
 									<tr>
-										<td>Supplier ID</td>
+										<td colspan="2" align="center">Supplier ID</td>
 										<td><input type="text" name="suppID" maxlength="50" placeholder="1" required></td>
                                     </tr>
 								</table>
