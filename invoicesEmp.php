@@ -22,21 +22,22 @@
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
         </head>
-        <!-- Style for a href in content -->
+        <!-- Style for a href in content div -->
         <style>
 			.content a:link, a:visited {
 				background-color: #f44336;
 				color: white;
-				padding: 14px 25px;
+				padding: 10px 20px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
-			}
+				}
 
-			a:hover, a:active {
-				background-color: red;
+				a:hover, a:active {
+					background-color: red;
 			}
 		</style>
+        
         <header>
             <?php include 'header.php'; ?>
         </header>
@@ -82,7 +83,7 @@
             </div>
 
             <!-- INNER PAGE CONTENT  -->
-			<div class = "">			
+			<div class = "content">			
                 <article>
                     <h2 style="text-align:center">Invoices</h2>
                     <table class="table">

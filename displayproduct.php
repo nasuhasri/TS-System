@@ -20,11 +20,12 @@
 		<head>
 			<link rel="shortcut icon" href="images/favicon.ico" />
 		</head>
+		<!-- Style for a href in content div -->
 		<style>
 			.content a:link, a:visited {
 				background-color: #f44336;
 				color: white;
-				padding: 10px 20px;
+				padding: 10px 15px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
