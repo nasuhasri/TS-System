@@ -26,6 +26,8 @@ http://www.tooplate.com/view/2099-scenic
 <link rel="stylesheet" href="css/owl.theme.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
 
+<link rel="shortcut icon" href="images/favicon.ico" />
+
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="css/tooplate-style.css">
 

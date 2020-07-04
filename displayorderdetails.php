@@ -15,7 +15,7 @@
         <!-- CUSTOM STYLES-->
         <link href="assets/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
 	
 	<head>
@@ -64,88 +64,98 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1>Order Management System</h1>
-			</div>
 			
-			<!-- INNER PAGE CONTENT  -->
-			<div class = "">
-				<article>
-					<h2 style="text-align:center">Display Order Details From Database</h2>
-					<?php					
-						$conn = OpenCon();
-						/* $orderid get from orderReq.php */
-						$orderid = $_GET["orderid"];
-						$sql= "SELECT * from `orders` o, `order_product` op
-								where o.orderid = op.orderid
-								and o.orderid = $orderid";
-						$result = $conn->query($sql);
+							<!-- INNER PAGE CONTENT  -->
+							<div class = "">
+								<h2 style="text-align:center">Display Order Details From Database</h2>
+								<table class="table">
+									<tr>
+										<th> Order ID </th>
+										<th> Order Date </th>
+										<th> Order Time </th>                   
+										<th> Product Name </th>
+										<th> Product Quantity </th>
+										<th> Total Price(RM) </th>
+										<th> Order Status </th>
+										<th> Staff-In-Charge </th>
+									</tr>
+									<?php					
+										$conn = OpenCon();
+										/* $orderid get from orderReq.php */
+										$orderid = $_GET["orderid"];
+										$sql= "SELECT * from `orders` o, `order_product` op
+												where o.orderid = op.orderid
+												and o.orderid = $orderid";
+										$result = $conn->query($sql);
 
-						if($result-> num_rows > 0) {
-							//output data of each row
-							while($row = $result->fetch_assoc()){
+										if($result-> num_rows > 0) {
+											//output data of each row
+											while($row = $result->fetch_assoc()){
 
-								$orderid = $row["orderid"];
-								$orderdate =$row["orderdate"];
-								$ordertime = $row["ordertime"];
-								$orderproduct = $row["orderproduct"];
-								$orderstatus = $row["orderstatus"];
-								$totalPrice = $row["totalPrice"];
-								$empid = $row["empid"];
-								echo "<table>";
-								echo "<tr>";
-									echo "<td>Order ID</td>";
-									echo"<td>$orderid</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Order Date</td>";
-									echo"<td>$orderdate</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Order Time</td>";
-									echo"<td>$ordertime</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Order Product</td>";
-									echo"<td>$orderproduct</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Total Price(RM)</td>";
-									echo"<td>$totalPrice</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Order Status</td>";
-									echo"<td>$orderstatus</td>";
-								echo"</tr>";
-								echo "<tr>";
-									echo "<td>Staff-In-Charge</td>";
-									echo"<td>$empid</td>";
-								echo"</tr>";
-							echo "</table>";
-							}
-						}
-						
-						else {
-							echo "Error : " . $sql. "<br>" . mysqli_error($conn);
-						}
-						CloseCon($conn);
-					?>
+												$orderid = $row["orderid"];
+												$orderdate =$row["orderdate"];
+												$ordertime = $row["ordertime"];
+												$orderproduct = $row["orderproduct"];
+												$proQty = $row["productqty"];
+												$totalPrice = $row["totalPrice"];								
+												$orderstatus = $row["orderstatus"];
+												$empid = $row["empid"];
+												// echo "<table>";
+												echo "<tr>";
+												// 	echo "<td>Order ID</td>";
+													echo"<td>$orderid</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Order Date</td>";
+													echo"<td>$orderdate</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Order Time</td>";
+													echo"<td>$ordertime</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Order Product</td>";
+													echo"<td>$orderproduct</td>";
+													echo"<td>$proQty</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Total Price(RM)</td>";
+													echo"<td>$totalPrice</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Order Status</td>";
+													echo"<td>$orderstatus</td>";
+												// echo"</tr>";
+												// echo "<tr>";
+												// 	echo "<td>Staff-In-Charge</td>";
+													echo"<td>$empid</td>";
+												echo"</tr>";
+											echo "</table>";
+											}
+										}
+										
+										else {
+											echo "Error : " . $sql. "<br>" . mysqli_error($conn);
+										}
+										CloseCon($conn);
+									?>
 
-					<table>
-						<tr>
-							<td></td>
-								<td colspan="2" align="center">
-									<input type="button" value="Back" onclick="history.back()" />
-								</td>
-						</tr>
-					</table>
+								<table>
+									<tr>
+										<td></td>
+											<td colspan="2" align="center">
+												<input type="button" value="Back" onclick="history.back()" />
+											</td>
+									</tr>
+								</table>
+							</div>
+							<!-- End of inner page content -->
+
 				
 				</article>
 			<!-- PAGE INNER  -->
 			</div>
 		<!-- PAGE WRAPPER  -->
 		</div>
-		
-		
-		
-		
 	</body>
 </html>

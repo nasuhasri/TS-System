@@ -21,6 +21,21 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
+            <!-- Style for a href in content div -->
+            <style>
+                .content a:link, a:visited {
+                    background-color: #f44336;
+                    color: white;
+                    padding: 10px 15px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    }
+
+                    a:hover, a:active {
+                        background-color: red;
+                }
+            </style>
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -67,9 +82,20 @@
             </div>
 
             <!-- INNER PAGE CONTENT  -->
-			<div class = "">			
+			<div class = "content">			
                 <article>
                     <h2 style="text-align:center">Invoices</h2>
+                    <table class="table">
+						<tr>
+							<th> Invoice ID </th>
+							<th> Invoice Date </th>
+							<th> Order ID </th>                   
+                            <th> Product ID </th>
+                            <th>Product Name</th>
+                            <th>Product Price(RM)</th>
+							<th> Product Quantity </th>
+							<th> Total Price(RM) </th>
+                        </tr>
                     <?php
                         $conn = OpenCon();
 
@@ -104,18 +130,6 @@
 
                         //$sql = "SELECT * FROM `invoice` i";
                         $result = $conn->query($sql);
-
-                        echo "<table>";
-                            echo "<tr>";
-                                echo "<th>Invoice ID</th>";
-                                echo "<th>Invoice Date</th>";
-                                echo "<th>Order ID</th>";
-                                echo "<th>Product ID</th>";
-                                echo "<th>Product Name</th>";
-                                echo "<th>Product Price(RM)</th>";
-                                echo "<th>Product Quantity</th>";
-                                echo "<th>Total Price(RM)</th>";
-                            echo"</tr>";
 
                         if($result->num_rows > 0){
                             while($row = $result->fetch_assoc()){
@@ -159,8 +173,8 @@
                 </article>
 			    <!-- /. PAGE INNER  -->
             </div>
-            <!-- /. PAGE WRAPPER  -->
         </div>
+        <!-- End div WRAPPER  -->
         
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

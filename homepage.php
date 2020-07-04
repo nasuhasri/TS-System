@@ -78,7 +78,7 @@
                     <!-- First row -->
                     <div class="row">
                         <!-- First column (Total Order) -->
-                        <div class="col-md-3 col-sm-6 col-xs-6">           
+                        <div class="col-md-5 col-sm-10 col-xs-10">           
 				            <div class="panel panel-back noti-box">
 					            <span class="icon-box bg-color-green set-icon">
 						            <i class="fa fa-bars"></i>
@@ -118,7 +118,7 @@
                         </div>
                         
                         <!-- Second column (Total Invoice) -->
-                        <div class="col-md-3 col-sm-6 col-xs-6">           
+                        <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
                                 <span class="icon-box bg-color-red set-icon">
                                     <i class="fa fa-envelope-o"></i>
@@ -152,7 +152,7 @@
                     <!-- Second row -->
                     <div class="row">
                         <!-- Third column (Total Pending Order) -->
-                        <div class="col-md-3 col-sm-6 col-xs-6">           
+                        <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
                                 <span class="icon-box bg-color-brown set-icon">
                                     <i class="fa fa-rocket"></i>
@@ -182,7 +182,7 @@
                         </div>
 
                         <!-- Fourth column (Total Rejected Order) -->
-                        <div class="col-md-3 col-sm-6 col-xs-6">           
+                        <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
                                 <span class="icon-box bg-color-red set-icon">
                                     <i class="fa fa-envelope-o"></i>
@@ -209,18 +209,15 @@
                                 <p class="main-text"><?php echo $reject ?> Orders</p>
                                 <p class="text-muted">Rejected</p>
                             </div>
-                        </div>
-
-                        
+                        </div>                        
                         <!-- Row kedua -->
                     </div>
-
-                    <!-- Page inner -->
                 </div>
-                <!-- Page wrapper -->
+                <!-- End of Page inner -->
             </div>
-            <!-- Wrapper  -->
+            <!-- End of Page wrapper -->
         </div>
+        <!-- End of Wrapper  -->
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

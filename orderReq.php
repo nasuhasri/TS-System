@@ -36,6 +36,21 @@
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
         </head>
+        <!-- Style for a href in content div -->
+		<style>
+			.content a:link, a:visited {
+				background-color: #f44336;
+				color: white;
+				padding: 10px 15px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				}
+
+				a:hover, a:active {
+					background-color: red;
+			}
+		</style>
         <header>
             <?php include 'headerSupp.php'; ?>
         </header>
@@ -79,10 +94,20 @@
                             <h1>Order Management System</h1>
             </div>
             
-            <div class="">
+            <div class="content">
                 <article>
                     <h1 style = "text-align: center">Order Request</h1>
-                    <p>Please be alert that you will delete the order once you clicked the cancel button!</p>
+                    <table class="table">
+                            <tr><p>Please be alert that you will delete the order once you clicked the cancel button!</p></tr>
+                            <tr>
+                                <th> Order ID </th>
+                                <th> Product ID </th>                     
+                                <th> Product Name </th>
+                                <th> Product Quantity </th>
+                                <th> Total Price </th>
+                                <th> Order Status </th>
+                                <th> Action </th>
+                            </tr>
                     <?php
                         /* remove -> include 'conn.php'; bcs
                         we have put connection inside header page */
@@ -91,48 +116,14 @@
                         /**Value suppID coming from supplierloginaction.php**/
 	                    $suppID = $_SESSION['login_supplier'];
                                         
-                        //get page number
-                        $page = 0;
-                                        
-                        //set variable
-                        if(isset($_GET["page"])==true){
-                            $page = $_GET["page"];					
-                        }
-                                        
-                        else{
-                            $page=0;
-                        }
-                                        
-                        //algo for pagination in sql
-                        if($page=="" || $page=="1"){
-                            $page1=0;
-                        }
-                        else {
-                            $page1 = ($page*4)-4;						
-                        }
-                                        
                         $sql = "select *
                                 from `order_product` op, `product` p, `orders` o, `supplier` s
                                 where op.productid = p.productid
                                 and o.orderid = op.orderid
                                 and p.supplierid = s.supplierid
                                 and o.orderstatus = 'PENDING'
-                                and s.supplierid = $suppID
-                                limit $page1, 4";
+                                and s.supplierid = $suppID";
                         $result = $conn->query($sql);
-                                        
-                        echo "<table>";
-                            echo "<tr>";
-                                echo "<th> Order ID </th>";
-                                // echo "<th> Order Date </th>";
-                                // echo "<th> Order Time </th>";
-                                echo "<th> Product ID </th>";                        
-                                echo "<th> Product Name </th>";
-                                echo "<th> Product Quantity </th>";
-                                echo "<th> Total Price </th>";
-                                echo "<th> Order Status </th>";
-                                echo "<th> Action </th>";
-                            echo "</tr>";
                                         
                         if ($result->num_rows > 0) {
                             //output data of each row
@@ -165,7 +156,7 @@
                             }
                         }
                         else {
-                            echo "Error in fetching data";
+                            echo "<p>No order request yet</p>";
                         }
                                         
                         echo "</table>";
