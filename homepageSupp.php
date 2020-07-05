@@ -65,15 +65,15 @@
                         <div class="col-md-12">
                         <h1>Order Management System</h1>   
                             <nav>
-                                    <p style="font-size:25px; color: Black;"><?php echo "Hello " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
-                                </nav>
+                                <p style="font-size:25px; color: Black;"><?php echo "Hello " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
+                            </nav>
                         </div>
                     </div>              
                     <!-- /. ROW  -->
 
                     <hr/>              
                     <div class="row">
-                        <!-- First TexBox (Total Order Request) -->
+                        <!-- First TexBox (Completed Order) -->
 					    <div class="col-md-5 col-sm-10 col-xs-10">           
 				            <div class="panel panel-back noti-box">
                                 <span class="icon-box bg-color-green set-icon">
@@ -81,7 +81,7 @@
                                 </span>
                     
                                 <div class="text-box" >
-                                    <p class="main-text">Total Order Request</p>
+                                    <p class="main-text">Completed Order</p>
                                     <?php
                                         /* remove -> include 'conn.php'; bcs
                                         we have put connection inside header page */
@@ -94,6 +94,7 @@
                                                 where op.productid = p.productid
                                                 and o.orderid = op.orderid
                                                 and p.supplierid = s.supplierid
+                                                and o.orderstatus = 'APPROVED'
                                                 and s.supplierid = $suppID";
                                         $result = $conn->query($sql);
                                         
@@ -102,7 +103,7 @@
                                                                 
                                             while($row = $result->fetch_assoc())
                                             {                              
-                                                    $request = $row["totalorder"];
+                                                    $approve = $row["totalorder"];
                                             }
                                         }
                                         else {
@@ -111,7 +112,7 @@
                                         
                                         CloseCon($conn);			
                                     ?>
-                                    <p class="main-text"><?php echo $request ?></p>
+                                    <p class="main-text"><?php echo "<a href=displayapproveorderSupp.php>$approve</a>" ?></p>
                                 </div>
 				            </div>
 				        </div>

@@ -69,7 +69,7 @@
                     <!-- END OF ROW  -->
 
                     <div class="row">
-                        <h1 style = "text-align: center">Rejected Order</h1>
+                        <h1 style = "text-align: center">Approved Order</h1>
                         <table class="table">
                             <tr>
                                 <th> Order ID </th>
@@ -90,7 +90,7 @@
                                     where op.productid = p.productid
                                     and o.orderid = op.orderid
                                     and p.supplierid = s.supplierid
-                                    and o.orderstatus = 'REJECTED'
+                                    and o.orderstatus = 'APPROVED'
                                     and s.supplierid = $suppID";
                             
                             $result = $conn->query($sql);
@@ -119,7 +119,6 @@
                             CloseCon($conn);
                         ?>
                     </div>
-
                     <table class="table">
 						<tr>
 							<td colspan="2" align="center">
@@ -127,6 +126,10 @@
 							</td>
 						</tr>
 					</table>
+                        
+                        
+                        
+                    </div>
                 </div>
                 <!-- End of page-inner -->
             </div>

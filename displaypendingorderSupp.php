@@ -137,10 +137,14 @@
                             CloseCon($conn);
                         ?>
                     </div>
-                        
-                        
-                        
-                    </div>
+
+                    <table class="table">
+						<tr>
+							<td colspan="2" align="center">
+							    <input type="button" value="Back" onclick="history.back()" />
+							</td>
+						</tr>
+					</table>
                 </div>
                 <!-- End of page-inner -->
             </div>

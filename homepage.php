@@ -59,8 +59,7 @@
                     </ul>                
                 </div>
             </nav>
-              
-            <!-- /. NAV SIDE  -->
+
             <div id="page-wrapper" >
                 <div id="page-inner">
                     <div class="row">
@@ -71,7 +70,6 @@
                             </nav>
                         </div>
                     </div>
-
                     <!-- /. ROW  -->
                     <hr>
 
@@ -111,8 +109,8 @@
                                             
                                             CloseCon($conn);			
                                         ?>
-                                        <p class="main-text"><?php echo $totalorder ?> Total</p>
-                                        <p class="text-muted">Order(s)</p>
+                                        <p class="main-text"><?php echo "<a href=displayorderfromdb.php>$totalorder Total</a>" ?></p>
+                                        <p class="">Order(s)</p>
 					            </div>
 				            </div>
                         </div>
@@ -142,8 +140,8 @@
                                     }                                        
                                     CloseCon($conn);
                                 ?>
-                                <p class="main-text"><?php echo $invoice ?> Invoices</p>                                
-                                <p class="text-muted">Received</p>
+                                <p class="main-text"><?php echo "<a href=invoicesEmp.php>$invoice Invoices</a>" ?></p>                                
+                                <p class="">Received</p>
                             </div>
                         </div>
                         <!-- Row first -->
@@ -210,8 +208,8 @@
                                 <p class="text-muted">Rejected</p>
                             </div>
                         </div>                        
-                        <!-- Row kedua -->
                     </div>
+                    <!-- End Row kedua -->
                 </div>
                 <!-- End of Page inner -->
             </div>
