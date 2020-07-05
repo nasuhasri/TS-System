@@ -88,13 +88,14 @@
                                     
                                 <table class="table">
                                     <tr>
-                                    <th> Order ID </th>
-                                    <th> Order Date </th>
-                                    <th> Order Time </th>
-                                    <th> Product ID </th>                      
-                                    <th> Product Name </th>
-                                    <th> Product Quantity </th>
-                                    <th> Order Status </th>
+                                        <th> Order ID </th>
+                                        <th> Order Date </th>
+                                        <th> Order Time </th>
+                                        <th> Product ID </th>                      
+                                        <th> Product Name </th>
+                                        <th> Product Quantity </th>
+                                        <th> Total Price(RM) </th>
+                                        <th> Order Status </th>
                                     </tr>
 				                <?php
                                     /* remove -> include 'conn.php'; bcs
@@ -138,16 +139,17 @@
                                             $product = $row["orderproduct"];
                                             $proID = $row["productid"];
                                             $proQty = $row["productqty"];
+                                            $totalprice = $row["totalPrice"];
                                             $status = $row["orderstatus"];
                                                                     
                                             echo "<tr>";
                                                 echo "<td> $orderid </td>";
-                                                // echo "<td><a href=displayorderdetails.php?orderid=$orderid>$orderid</a></td>";
                                                 echo "<td> $date </td>";
                                                 echo "<td> $time </td>";
                                                 echo "<td> $proID </td>";
                                                 echo "<td> $product </td>";
                                                 echo "<td> $proQty </td>";
+                                                echo "<td> $totalprice </td>";
                                                 echo "<td> $status </td>";
                                             echo "</tr>";
                                         }
@@ -179,6 +181,14 @@
                         </div>
                     </div>
                     <!-- End of class row -->
+
+                    <table class="table">
+						<tr>
+							<td colspan="2" align="center">
+							    <input type="button" value="Back" onclick="history.back()" />
+							</td>
+						</tr>
+					</table>
                 </div>
                 <!-- END PAGE INNER  -->
             </div>

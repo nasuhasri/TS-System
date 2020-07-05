@@ -85,21 +85,18 @@
                         <!-- INNER PAGE CONTENT  -->
                         <div class = "content">			
                             <article>
-                                <h2 style="text-align:center">Invoices</h2>
+                                <h2 style="text-align:center">Pending Order</h2>
                                 <table class="table">
-                                    <thead class="thead-dark">
                                         <tr>
-                                            <th>Invoice ID</th>
-                                            <th>Invoice Date</th>
-                                            <th>Order ID</th>
-                                            <th>Product ID</th>
-                                            <th>Product Name</th>
-                                            <th>Product Price(RM)</th>
-                                            <th>Product Quantity</th>
-                                            <th>Total Price(RM)</th>
+                                            <th> Order ID </th>
+                                            <th> Order Date </th>
+                                            <th> Order Time </th>
+                                            <th> Product ID </th>                      
+                                            <th> Product Name </th>
+                                            <th> Product Quantity </th>
+                                            <th> Total Price(RM) </th>
+                                            <th> Order Status </th>
                                         </tr>
-                                    </thead>
-
                                 <?php
                                     $conn = OpenCon();
 
@@ -125,11 +122,10 @@
                                         $page1= ($page*4)-4;
                                     }
 
-                                    $sql = "SELECT * FROM `invoice` i, `orders` o, `order_product` op, `product` p
-                                            WHERE o.orderid = i.orderid
-                                            AND o.orderid = op.orderid
+                                    $sql = "SELECT * FROM `orders` o, `order_product` op, `product` p
+                                            WHERE o.orderid = op.orderid
                                             and op.productid = p.productid
-                                            and o.orderstatus = 'APPROVED'
+                                            and o.orderstatus = 'PENDING'
                                             and o.empid = $empID
                                             limit $page1,4";
 
@@ -138,39 +134,39 @@
 
                                     if($result->num_rows > 0){
                                         while($row = $result->fetch_assoc()){
-                                            $invID = $row["invoiceid"];
-                                            $invDate = $row["invoicedate"];
                                             $orderid = $row["orderid"];
-                                            $prodID = $row["productid"];
-                                            $prodNm = $row["productname"];
-                                            $prodPrice = $row["productprice"];
-                                            $prodQty = $row["productqty"];
-                                            $totalPrice = $row["totalPrice"];
+                                            $date = $row["orderdate"];
+                                            $time = $row["ordertime"];
+                                            $product = $row["orderproduct"];
+                                            $proID = $row["productid"];
+                                            $proQty = $row["productqty"];
+                                            $totalprice = $row["totalPrice"];
+                                            $status = $row["orderstatus"];
 
                                             echo "<tr>";
-                                                echo "<td>$invID</td>";
-                                                echo "<td>$invDate</td>";
-                                                echo "<td>$orderid</td>";
-                                                echo "<td>$prodID</td>";
-                                                echo "<td>$prodNm</td>";
-                                                echo "<td>$prodPrice</td>";
-                                                echo "<td>$prodQty</td>";
-                                                echo "<td>$totalPrice</td>";
+                                                echo "<td> $orderid </td>";
+                                                echo "<td> $date </td>";
+                                                echo "<td> $time </td>";
+                                                echo "<td> $proID </td>";
+                                                echo "<td> $product </td>";
+                                                echo "<td> $proQty </td>";
+                                                echo "<td> $totalprice </td>";
+                                                echo "<td> $status </td>";
                                             echo "</tr>";
                                         }
                                     }
                                     else{
-                                        echo "<p>No invoices have been made yet. Please notify your supplier.</p>";
+                                        echo "Error in fetching data";
                                     }
 
                                     echo "</table>";
 
-                                    $sql2 = "select count(*) FROM invoice";
+                                    $sql2 = "select count(*) FROM `orders`";
                                     $result2 = $conn->query($sql2);
                                     $row = $result2 ->fetch_row();
-                                    $count = ceil($row[0]/4);
+                                    $count = ceil($row[0]/10);
                                     for($pageno=1;$pageno<=$count;$pageno++){
-                                        ?><a href="invoicesEmp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
+                                        ?><a href="pendingorder.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
                                     }
 
                                     CloseCon($conn);

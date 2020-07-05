@@ -202,7 +202,7 @@
 										echo '<p>Your email has been sent<p>';
 									?>
 								</div>
-								<div class="panel-footer"> Your satisfaction is our task </div>
+								<div class="panel-footer"> Your Satisfaction Is Our Priority </div>
 							</div>
 						</div>
 					</div>

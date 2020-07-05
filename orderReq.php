@@ -106,6 +106,7 @@
                                 <th> Product Quantity </th>
                                 <th> Total Price </th>
                                 <th> Order Status </th>
+                                <th> Availability of Product </th>
                                 <th> Action </th>
                             </tr>
                     <?php
@@ -138,20 +139,51 @@
                                 $proQty = $row["productqty"];
                                 $totalPrice = $row["totalPrice"];                            
                                 $status = $row["orderstatus"];
+                                $stock = $row["productStock"];
                                                         
                                 echo "<tr>";
-                                    // echo "<td> $orderid </td>";
                                     echo "<td><a href=displayorderdetails.php?orderid=$orderid>$orderid</a></td>";
-                                    // echo "<td> $date </td>";
-                                    // echo "<td> $time </td>";
                                     echo "<td> $proID </td>";
-                                    //echo "<td><a href=displayproductdetails.php?productid=$proID>$proID</a></td>";
                                     echo "<td> $product </td>";
                                     echo "<td> $proQty </td>";
                                     echo "<td> $totalPrice </td>";
-                                    echo "<td> $status </td>";
-                                    echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE</button>
-                                                <button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT </button> <?php "</td>";
+                                    echo "<td> $status </td>";    
+                                    echo "<td> $stock </td>";
+                                    
+                                    // $productLeft = $stock - $proQty;
+                                    
+                                    // echo '<script>console.log('. json_encode($stock) .')</script>';
+                                    if($proQty <= $stock){
+                                        // echo '<script>console.log('. json_encode($stock-$proQty) .')</script>';
+                                        // echo $productLeft ; 
+                                        // echo $proID;
+                                        // echo $suppID;
+                                        $productLeft = $stock - $proQty;
+                                        $sql3 = "UPDATE `product` p3
+                                                SET p3.productStock = $productLeft
+                                                WHERE p3.productid = $proID
+                                                AND p3.supplierid = $suppID";
+
+                                        $result3 = $conn->query($sql3);
+									
+                                        if(! $result3){
+                                            die('Could not update data: '. mysqli_error($conn));
+                                        }
+                                        else {
+                                            echo "berjaya";
+                                        }
+
+                                        // echo "<td><button onclick='window.location.href=approveorder.php'>APPROVE</button></td>";
+                                        echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE1</button><?php "</td>";
+                                    }
+                                    else{
+                                        
+                                    }
+
+                                    // ?/><td><button onclick="confirmCancel('<?php echo $orderid ?/>')"> REJECT </button></td><?php
+
+                                    echo "<td>" ?><button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT1 </button> <?php "</td>";
+
                                 echo "</tr>";
                             }
                         }

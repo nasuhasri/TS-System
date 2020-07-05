@@ -81,7 +81,6 @@
                                 </span>
                     
                                 <div class="text-box" >
-                                    <p class="main-text">Completed Order</p>
                                     <?php
                                         /* remove -> include 'conn.php'; bcs
                                         we have put connection inside header page */
@@ -112,7 +111,8 @@
                                         
                                         CloseCon($conn);			
                                     ?>
-                                    <p class="main-text"><?php echo "<a href=displayapproveorderSupp.php>$approve</a>" ?></p>
+                                    <p class="main-text"><?php echo "<a href=displayapproveorderSupp.php>Completed Order</a>" ?></p>      
+                                    <p class="main-text"><?php echo $approve ?></p>
                                 </div>
 				            </div>
 				        </div>
@@ -125,7 +125,6 @@
                                 </span>
                                 
                                 <div class="text-box">
-                                    <p class="main-text">Total Sales</p>
                                     <?php
                                         $conn = OpenCon();
 
@@ -148,7 +147,8 @@
                                             }
                                         }						
 				                        CloseCon($conn);
-                                    ?>
+                                    ?>                                    
+                                    <p class="main-text">Total Sales</p>
                                     <p class="main-text"><?php echo "RM ", $sales ?></p>
 					            </div>
 				            </div>
@@ -165,7 +165,6 @@
                                     <i class="fa fa-bars"></i>
                                 </span>
                                 <div class="text-box" >
-                                    <p class="main-text">Pending Order</p>
                                     <?php
                                         /* remove -> include 'conn.php'; bcs
                                         we have put connection inside header page */
@@ -196,7 +195,8 @@
                                         
                                             CloseCon($conn);			
                                     ?>
-                                    <p class="main-text"><?php echo "<a href=displaypendingorderSupp.php>$pending</a>" ?></p>
+                                    <p class="main-text"><?php echo "<a href=displaypendingorderSupp.php>Pending Order</a>" ?></p>                                   
+                                    <p class="main-text"><?php echo $pending; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +208,6 @@
                                     <i class="fa fa-bars"></i>
                                 </span>
                                 <div class="text-box">
-                                    <p class="main-text">Rejected Order</p>
                                     <?php
                                         $conn = OpenCon();
 
@@ -230,7 +229,8 @@
                                         }                                        
                                         CloseCon($conn);
                                     ?>
-                                    <p class="main-text"><?php echo "<a href=displayrejectorderSupp.php>$reject</a>" ?></p>
+                                    <p class="main-text"><?php echo "<a href=displayrejectorderSupp.php>Rejected Order</a>" ?></p>
+                                    <p class="main-text"><?php echo $reject; ?></p>
                                 </div>
                             </div>
                         </div>

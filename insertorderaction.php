@@ -146,7 +146,7 @@
 							<div class="panel panel-success">
 								<div class="panel-heading"> Order Messages </div>
 								<div class="panel-body">
-									<p> New record created successfully. Please be patient. 
+									<p> New record created successfully. Please be patience. 
 										Your order will be processed.
 									</p>
 								</div>

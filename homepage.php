@@ -109,8 +109,8 @@
                                             
                                             CloseCon($conn);			
                                         ?>
-                                        <p class="main-text"><?php echo "<a href=displayorderfromdb.php>$totalorder Total</a>" ?></p>
-                                        <p class="">Order(s)</p>
+                                        <p class="main-text"><?php echo "<a href=displayorderfromdb.php>$totalorder Total Order(s)</a>" ?></p>
+                                        <p class="">Request</p>
 					            </div>
 				            </div>
                         </div>
@@ -173,8 +173,8 @@
                                         }                                            
                                         CloseCon($conn);
                                     ?>
-                                    <p class="main-text"><?php echo $pending ?> Orders</p>
-                                    <p class="text-muted">Pending</p>
+                                    <p class="main-text"><?php echo "<a href=pendingorder.php>$pending Orders</a>" ?></p>
+                                    <p class="">Pending</p>
                                 </div>
                             </div>
                         </div>
@@ -203,9 +203,9 @@
                                         }
                                     }                                        
                                     CloseCon($conn);
-                                ?>                                
-                                <p class="main-text"><?php echo $reject ?> Orders</p>
-                                <p class="text-muted">Rejected</p>
+                                ?>
+                                <p class="main-text"><?php echo "<a href=rejectedorder.php>$reject Orders</a>" ?></p>
+                                <p class="">Rejected</p>
                             </div>
                         </div>                        
                     </div>
