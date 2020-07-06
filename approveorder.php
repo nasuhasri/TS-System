@@ -86,25 +86,6 @@
 										echo "";
 									}
 
-									// $productLeft = $_GET["productLeft"];
-									// $proID = $_GET["proID"];
-									// $suppID = $_GET["suppID"];
-
-									// $sql3 = "UPDATE `product` p3
-                                    //         SET p3.productStock = $productLeft
-                                    //         WHERE p3.productid = $proID
-                                    //         AND p3.supplierid = $suppID";
-
-                                    // $result3 = $conn->query($sql3);
-									
-                                    // if(! $result3){
-                                    //     die('Could not update data: '. mysqli_error($conn));
-                                    // }
-                                    // else {
-                                    //     echo "berjaya";
-                                    // }
-
-
 									/* Insert data into table invoice */
 									/* Get orderID using rand method */
 									$invID = rand(100000,999999);

@@ -150,8 +150,6 @@
                                     echo "<td> $status </td>";    
                                     echo "<td> $stock </td>";
                                     
-                                    // $productLeft = $stock - $proQty;
-                                    
                                     // echo '<script>console.log('. json_encode($stock) .')</script>';
                                     if($proQty <= $stock){
                                         // echo '<script>console.log('. json_encode($stock-$proQty) .')</script>';
@@ -159,22 +157,9 @@
                                         // echo $proID;
                                         // echo $suppID;
                                         $productLeft = $stock - $proQty;
-                                        // $sql3 = "UPDATE `product` p3
-                                        //         SET p3.productStock = $productLeft
-                                        //         WHERE p3.productid = $proID
-                                        //         AND p3.supplierid = $suppID";
 
-                                        // $result3 = $conn->query($sql3);
-									
-                                        // if(! $result3){
-                                        //     die('Could not update data: '. mysqli_error($conn));
-                                        // }
-                                        // else {
-                                        //     echo "berjaya";
-                                        // }
-
-                                        // echo "<td><button onclick='window.location.href=approveorder.php'>APPROVE</button></td>";
                                         echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE1</button><?php "</td>";
+
                                         $sql3 = "UPDATE `product` p3
                                                 SET p3.productStock = $productLeft
                                                 WHERE p3.productid = $proID
