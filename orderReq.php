@@ -123,7 +123,8 @@
                                 and o.orderid = op.orderid
                                 and p.supplierid = s.supplierid
                                 and o.orderstatus = 'PENDING'
-                                and s.supplierid = $suppID";
+                                and s.supplierid = $suppID
+                                ORDER BY p.productid ASC";
                         $result = $conn->query($sql);
                                         
                         if ($result->num_rows > 0) {
@@ -132,8 +133,6 @@
                             while($row = $result->fetch_assoc()){
                                                         
                                 $orderid = $row["orderid"];
-                                // $date = $row["orderdate"];
-                                // $time = $row["ordertime"];
                                 $proID = $row["productid"];
                                 $product = $row["productname"];                            
                                 $proQty = $row["productqty"];
@@ -156,28 +155,24 @@
                                         // echo $productLeft ; 
                                         // echo $proID;
                                         // echo $suppID;
-                                        $productLeft = $stock - $proQty;
+                                        //$productLeft = $stock - $proQty;
 
                                         echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE1</button><?php "</td>";
 
-                                        $sql3 = "UPDATE `product` p3
-                                                SET p3.productStock = $productLeft
-                                                WHERE p3.productid = $proID
-                                                AND p3.supplierid = $suppID";
+                                        // $sql3 = "UPDATE `product` p3
+                                        //         SET p3.productStock = $productLeft
+                                        //         WHERE p3.productid = $proID
+                                        //         AND p3.supplierid = $suppID";
 
-                                        $result3 = $conn->query($sql3);
+                                        // $result3 = $conn->query($sql3);
 									
-                                        if(! $result3){
-                                            die('Could not update data: '. mysqli_error($conn));
-                                        }
-                                        else {
-                                            echo "berjaya";
-                                        }
+                                        // if(! $result3){
+                                        //     die('Could not update data: '. mysqli_error($conn));
+                                        // }
+                                        // else {
+                                        //     echo "";
+                                        // }
                                     }
-                                    else{
-                                        
-                                    }
-
                                     // ?/><td><button onclick="confirmCancel('<?php echo $orderid ?/>')"> REJECT </button></td><?php
 
                                     echo "<td>" ?><button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT1 </button> <?php "</td>";

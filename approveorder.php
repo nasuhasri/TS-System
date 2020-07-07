@@ -86,8 +86,53 @@
 										echo "";
 									}
 
+									/**Value suppID coming from supplierloginaction.php**/
+									$suppID = $_SESSION['login_supplier'];
+                                        
+									$sqlStock = "SELECT *
+											FROM `product` p, `orders` o, `order_product` op
+											where p.productname = o.orderproduct
+											AND o.orderid = op.orderid
+											AND p.supplierid = $suppID
+											AND o.orderid = $orderid";
+									$resultStock = $conn->query($sqlStock);
+
+									if($resultStock->num_rows > 0){
+										//output data of each row
+                                                
+										while($row = $resultStock->fetch_assoc()){
+
+											$proQty = $row["productqty"];
+											$proID = $row["productid"];
+											$stock = $row["productStock"];
+
+											if($proQty <= $stock){
+												$productLeft = $stock - $proQty;
+
+												$sqlUpdate = "UPDATE `product` p3, `orders` o
+															SET p3.productStock = $productLeft
+															WHERE p3.productid = $proID
+															AND p3.supplierid = $suppID
+															AND o.orderid = $orderid";
+
+												$resultUpdate = $conn->query($sqlUpdate);
+											
+												if(! $resultUpdate){
+													die('Could not update data: '. mysqli_error($conn));
+												}
+												else {
+													echo "Berjaya";
+												}	
+											}
+											else{
+												
+											}
+										}
+									}
+
+
 									/* Insert data into table invoice */
-									/* Get orderID using rand method */
+									/* Get invID using rand method */
 									$invID = rand(100000,999999);
 									/*Change the line below to our timezone!*/
 									date_default_timezone_set('Asia/Kuala_Lumpur');
@@ -192,15 +237,25 @@
 					<!-- Second row -->
 					<div class="row">
 						<div class="col-md-4 col-sm-4">
-							<div class="panel panel-info">
-								<div class="panel-heading"> Approve Info </div>
+							<div class="panel panel-success">
+								<div class="panel-heading"> Approved Order Info</div>
 								<div class="panel-body">
 									<p>Details: </p>
 									<?php
 										echo "<p>Order with ID: "; echo $orderid; echo " has been approved</p>";
-										echo "<p>New record created successfully for invoice</p>";
-										echo '<p>Your email has been sent<p>';
-									?>
+									?>									
+									<p>Your approve email has been sent<p>
+								</div>
+								<div class="panel-footer"> Your Satisfaction Is Our Priority </div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-4">
+							<div class="panel panel-info">
+								<div class="panel-heading"> Messages Info </div>
+								<div class="panel-body">
+									<p>New record created successfully for invoice</p>
+									<p>Stock for the product has been updated</p>
 								</div>
 								<div class="panel-footer"> Your Satisfaction Is Our Priority </div>
 							</div>
