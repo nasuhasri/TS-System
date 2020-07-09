@@ -21,23 +21,8 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
-        <!-- Style for a href in content div -->
-        <style>
-			.content a:link, a:visited {
-				background-color: #f44336;
-				color: white;
-				padding: 10px 20px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				}
-
-				a:hover, a:active {
-					background-color: red;
-			}
-		</style>
-        
         <header>
             <?php include 'header.php'; ?>
         </header>
@@ -127,6 +112,7 @@
                                             and op.productid = p.productid
                                             and o.orderstatus = 'PENDING'
                                             and o.empid = $empID
+                                            ORDER BY o.orderdate, o.ordertime DESC
                                             limit $page1,4";
 
                                     //$sql = "SELECT * FROM `invoice` i";
@@ -156,7 +142,7 @@
                                         }
                                     }
                                     else{
-                                        echo "Error in fetching data";
+                                        echo "There is no pending order!";
                                     }
 
                                     echo "</table>";

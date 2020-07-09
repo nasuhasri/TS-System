@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -68,7 +69,7 @@
                     </div>              
                     <!-- END OF ROW  -->
 
-                    <div class="row">
+                    <div class="content">
                         <?php
                             $conn = openCon();
 
@@ -81,6 +82,7 @@
                                 die('Could not delete data: '. mysqli_error($conn));
                             }
                             else {
+                                echo "\n";
                                 echo "Order with ID: "; echo $orderid; echo " has been deleted";
                             }
                         ?>

@@ -19,22 +19,8 @@
 	<head>
 		<head>
 			<link rel="shortcut icon" href="images/favicon.ico" />
+			<link rel="stylesheet" type="text/css" href="contentStyle.css">
 		</head>
-		<!-- Style for a href in content div -->
-		<style>
-			.content a:link, a:visited {
-				background-color: #f44336;
-				color: white;
-				padding: 10px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				}
-
-				a:hover, a:active {
-					background-color: red;
-			}
-		</style>
 	   	<header>
 			<?php include 'header.php'; ?>
 		</header>

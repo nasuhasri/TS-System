@@ -121,7 +121,7 @@
 													die('Could not update data: '. mysqli_error($conn));
 												}
 												else {
-													echo "Berjaya";
+													echo "";
 												}	
 											}
 											else{

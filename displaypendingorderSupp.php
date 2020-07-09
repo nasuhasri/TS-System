@@ -28,7 +28,26 @@
                     return false;
                 }
             }			
-        </script>	
+        </script>
+        <style>
+            .content a:link, a:visited {
+                background-color: #f44336;
+                color: white;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            a:hover, a:active {
+                background-color: red;
+            }
+
+            .content{
+                font-size: medium;
+                /* text-align: center; */
+            }
+        </style>	
     </head>
 
     <head>
@@ -83,9 +102,9 @@
                     </div>              
                     <!-- END OF ROW  -->
 
-                    <div class="row">
+                    <div class="content">
                         <h1 style = "text-align: center">Pending Order</h1>
-                        <p>Please be alert! Once you click the button delete, order will be deleted from database</p>
+                        <p>Please be alert! Order will be deleted once you click the button delete!</p>
                         <table class="table">
                             <tr>
                                 <th> Order ID </th>

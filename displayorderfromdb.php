@@ -18,23 +18,10 @@
     
     <head>
 		<head>
-			<link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
-        <!-- Style for a href in content div -->
-		<style>
-			.content a:link, a:visited {
-				background-color: #f44336;
-				color: white;
-				padding: 10px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				}
-
-				a:hover, a:active {
-					background-color: red;
-			}
-		</style>
+        
 	    <header>
 			<?php include 'header.php'; ?>
 		</header>
@@ -101,6 +88,8 @@
                                     /* remove -> include 'conn.php'; bcs
                                     we have put connection inside header page */
                                     $conn = OpenCon();
+
+                                    $empID = $_SESSION['login_user'];
                                     
                                     //get page number
                                     $page = 0;
@@ -122,9 +111,11 @@
                                         $page1 = ($page*10)-10;						
                                     }
                                                     
-                                    $sql = "select * 
-                                            from `orders` ord, `order_product` op 
-                                            where ord.orderid = op.orderid
+                                    $sql = "SELECT * 
+                                            FROM `orders` ord, `order_product` op 
+                                            WHERE ord.orderid = op.orderid
+                                            AND ord.empID = $empID
+                                            ORDER BY ord.orderdate, ord.ordertime DESC
                                             limit $page1, 10";
                                     $result = $conn->query($sql);
                                     

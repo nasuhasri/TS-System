@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -68,7 +69,7 @@
                     </div>              
                     <!-- END OF ROW  -->
 
-                    <div class="row">
+                    <div class="content">
                         <h1 style = "text-align: center">Rejected Order</h1>
                         <table class="table">
                             <tr>
@@ -115,6 +116,9 @@
                                         echo "<td> $status </td>";
                                     echo "</tr>";
                                 }
+                            }
+                            else{
+                                echo"<p>There is no rejected order!</p>";
                             }                                        
                             CloseCon($conn);
                         ?>

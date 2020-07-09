@@ -87,11 +87,15 @@
                                             /* remove -> include 'conn.php'; bcs
                                             we have put connection inside header page */
                                             $conn = OpenCon();
+
+                                            /**Value is supplierid coming from supplierloginaction.php**/
+                                            $empID = $_SESSION['login_user'];
                                     
-                                            $sql = "select count(op.orderid) as totalorder
-                                                    from `order_product` op, `product` p, `orders` o
-                                                    where op.productid = p.productid
-                                                    and o.orderid = op.orderid";
+                                            $sql = "SELECT count(o.orderid) AS totalorder
+                                                    FROM `order_product` op, `product` p, `orders` o
+                                                    WHERE op.productid = p.productid
+                                                    AND o.orderid = op.orderid
+                                                    AND o.empID = $empID";
                                             $result = $conn->query($sql);
                                     
                                             if ($result->num_rows > 0) {
@@ -109,8 +113,8 @@
                                             
                                             CloseCon($conn);			
                                         ?>
-                                        <p class="main-text"><?php echo "<a href=displayorderfromdb.php>$totalorder Total Order(s)</a>" ?></p>
-                                        <p class="">Request</p>
+                                        <p class="main-text"><?php echo "<a href=displayorderfromdb.php>$totalorder Request</a>" ?></p>
+                                        <p class="">Orders</p>
 					            </div>
 				            </div>
                         </div>
@@ -125,10 +129,11 @@
                             <div class="text-box" >
                                 <?php
                                     $conn = OpenCon();
-
-                                    $sql = "select count(i.invoiceid) as totalinvoice
-                                            from `orders` o, `invoice` i
-                                            where o.orderid = i.orderid";
+                                    
+                                    $sql = "SELECT count(i.invoiceid) AS totalinvoice
+                                            FROM `orders` o, `invoice` i
+                                            WHERE o.orderid = i.orderid
+                                            AND o.empID = $empID";
                                     $result = $conn->query($sql);
 
                                     if($result-> num_rows > 0) {
@@ -140,8 +145,8 @@
                                     }                                        
                                     CloseCon($conn);
                                 ?>
-                                <p class="main-text"><?php echo "<a href=invoicesEmp.php>$invoice Invoices</a>" ?></p>                                
-                                <p class="">Received</p>
+                                <p class="main-text"><?php echo "<a href=invoicesEmp.php>$invoice Completed</a>" ?></p>                                
+                                <p class="">Orders</p>
                             </div>
                         </div>
                         <!-- Row first -->
@@ -159,9 +164,10 @@
                                     <?php
                                         $conn = OpenCon();
 
-                                        $sql = "select count(o.orderid) as totalpending
-                                                from `orders` o
-                                                where o.orderstatus = 'PENDING'";
+                                        $sql = "SELECT count(o.orderid) AS totalpending
+                                                FROM `orders` o
+                                                WHERE o.orderstatus = 'PENDING'
+                                                AND o.empID = $empID";
                                         $result = $conn->query($sql);
 
                                         if($result-> num_rows > 0) {
@@ -173,8 +179,8 @@
                                         }                                            
                                         CloseCon($conn);
                                     ?>
-                                    <p class="main-text"><?php echo "<a href=pendingorder.php>$pending Orders</a>" ?></p>
-                                    <p class="">Pending</p>
+                                    <p class="main-text"><?php echo "<a href=pendingorder.php>$pending Pending</a>" ?></p>
+                                    <p class="">Orders</p>
                                 </div>
                             </div>
                         </div>
@@ -190,9 +196,10 @@
                                 <?php
                                     $conn = OpenCon();
 
-                                    $sql = "select count(o.orderid) as totalreject
-                                            from `orders` o
-                                            where o.orderstatus = 'REJECTED'";
+                                    $sql = "SELECT count(o.orderid) AS totalreject
+                                            FROM `orders` o
+                                            WHERE o.orderstatus = 'REJECTED'
+                                            AND o.empID = $empID";
                                     $result = $conn->query($sql);
 
                                     if($result-> num_rows > 0) {
@@ -204,8 +211,8 @@
                                     }                                        
                                     CloseCon($conn);
                                 ?>
-                                <p class="main-text"><?php echo "<a href=rejectedorder.php>$reject Orders</a>" ?></p>
-                                <p class="">Rejected</p>
+                                <p class="main-text"><?php echo "<a href=rejectedorder.php>$reject Rejected</a>" ?></p>
+                                <p class="">Orders</p>
                             </div>
                         </div>                        
                     </div>

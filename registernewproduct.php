@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'header.php'; ?>
@@ -67,7 +68,7 @@
                         <h1>Order Management System</h1>  
                     </div>
         
-		            <div class="center">
+		            <div class="content">
 				        <article>
 							<h2 style="text-align:center">Product Registration Form</h2> <br>
 							<form action="insertproductaction.php " id="form" method="POST">

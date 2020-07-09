@@ -1,0 +1,19 @@
+
+/* Style for content in every pages */
+.content a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+.content{
+    font-size: medium;
+    /* text-align: center; */
+}

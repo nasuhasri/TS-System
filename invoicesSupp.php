@@ -21,21 +21,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
-            <!-- Style for a href in content div -->
-            <style>
-                .content a:link, a:visited {
-                    background-color: #f44336;
-                    color: white;
-                    padding: 10px 15px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    }
-
-                    a:hover, a:active {
-                        background-color: red;
-                }
-            </style>
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -79,100 +65,106 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1>Order Management System</h1>
+                        </div>
+
+                        <!-- INNER PAGE CONTENT  -->
+                        <div class = "content">			
+                            <article>
+                                <h2 style="text-align:center">Invoices</h2>
+                                <table class="table">
+                                    <tr>
+                                        <th> Invoice ID        </th>
+                                        <th> Invoice Date      </th>
+                                        <th> Order ID          </th>                   
+                                        <th> Product ID        </th>
+                                        <th> Product Name      </th>
+                                        <th> Product Price(RM) </th>
+                                        <th> Product Quantity  </th>
+                                        <th> Total Price(RM)   </th>
+                                    </tr>
+                                <?php
+                                    $conn = OpenCon();
+
+                                    /**Value supplierid coming from supplierloginaction.php**/
+                                    $suppID = $_SESSION['login_supplier'];
+                                    
+                                    //get page number
+                                    $page = 0;
+
+                                    //set variable
+                                    if(isset($_GET["page"])==true) {
+                                        $page = ($_GET["page"]);
+                                    }
+                                    else {
+                                        $page = 0;	
+                                    }
+
+                                    //algo for pagination in sql
+                                    if ($page=="" || $page=="1"){
+                                            $page1 = 0;
+                                    }
+                                    else {
+                                        $page1= ($page*4)-4;
+                                    }
+
+                                    $sql = "SELECT * FROM `invoice` i, `orders` o, `order_product` op, `product` p
+                                            WHERE o.orderid = i.orderid
+                                            AND o.orderid = op.orderid
+                                            and op.productid = p.productid
+                                            and p.supplierid = $suppID
+                                            limit $page1,4";
+
+                                    //$sql = "SELECT * FROM `invoice` i";
+                                    $result = $conn->query($sql);
+
+                                    if($result->num_rows > 0){
+                                        while($row = $result->fetch_assoc()){
+                                            $invID = $row["invoiceid"];
+                                            $invDate = $row["invoicedate"];
+                                            $orderid = $row["orderid"];
+                                            $prodID = $row["productid"];
+                                            $prodNm = $row["productname"];
+                                            $prodPrice = $row["productprice"];
+                                            $prodQty = $row["productqty"];
+                                            $totalPrice = $row["totalPrice"];
+
+                                            echo "<tr>";
+                                                echo "<td>$invID</td>";
+                                                echo "<td>$invDate</td>";
+                                                echo "<td>$orderid</td>";
+                                                echo "<td>$prodID</td>";
+                                                echo "<td>$prodNm</td>";
+                                                echo "<td>$prodPrice</td>";
+                                                echo "<td>$prodQty</td>";
+                                                echo "<td>$totalPrice</td>";
+                                            echo "</tr>";
+                                        }
+                                    }
+                                    else{
+                                        echo "<p>There is no invoices has been made yet!</p>";
+                                    }
+
+                                    echo "</table>";
+
+                                    $sql2 = "select count(*) FROM invoice";
+                                    $result2 = $conn->query($sql2);
+                                    $row = $result2 ->fetch_row();
+                                    $count = ceil($row[0]/4);
+                                    for($pageno=1;$pageno<=$count;$pageno++){
+                                        ?><a href="invoicesSupp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
+                                    }
+
+                                    CloseCon($conn);
+                                ?>
+                            </article>
+                        </div>
+                        <!-- End of content -->
+                    </div>
+                    <!-- End of row -->
+                </div>
+			    <!-- END PAGE INNER  -->
             </div>
-
-            <!-- INNER PAGE CONTENT  -->
-			<div class = "content">			
-                <article>
-                    <h2 style="text-align:center">Invoices</h2>
-                    <table class="table">
-						<tr>
-							<th> Invoice ID </th>
-							<th> Invoice Date </th>
-							<th> Order ID </th>                   
-                            <th> Product ID </th>
-                            <th>Product Name</th>
-                            <th>Product Price(RM)</th>
-							<th> Product Quantity </th>
-							<th> Total Price(RM) </th>
-                        </tr>
-                    <?php
-                        $conn = OpenCon();
-
-                        /**Value supplierid coming from supplierloginaction.php**/
-                        $suppID = $_SESSION['login_supplier'];
-                        
-                        //get page number
-                        $page = 0;
-
-                        //set variable
-                        if(isset($_GET["page"])==true) {
-                            $page = ($_GET["page"]);
-                        }
-                        else {
-                            $page = 0;	
-                        }
-
-                        //algo for pagination in sql
-                        if ($page=="" || $page=="1"){
-                                $page1 = 0;
-                        }
-                        else {
-                            $page1= ($page*4)-4;
-                        }
-
-                        $sql = "SELECT * FROM `invoice` i, `orders` o, `order_product` op, `product` p
-                                WHERE o.orderid = i.orderid
-                                AND o.orderid = op.orderid
-                                and op.productid = p.productid
-                                and p.supplierid = $suppID
-                                limit $page1,4";
-
-                        //$sql = "SELECT * FROM `invoice` i";
-                        $result = $conn->query($sql);
-
-                        if($result->num_rows > 0){
-                            while($row = $result->fetch_assoc()){
-                                $invID = $row["invoiceid"];
-                                $invDate = $row["invoicedate"];
-                                $orderid = $row["orderid"];
-                                $prodID = $row["productid"];
-                                $prodNm = $row["productname"];
-                                $prodPrice = $row["productprice"];
-                                $prodQty = $row["productqty"];
-                                $totalPrice = $row["totalPrice"];
-
-                                echo "<tr>";
-                                    echo "<td>$invID</td>";
-                                    echo "<td>$invDate</td>";
-                                    echo "<td>$orderid</td>";
-                                    echo "<td>$prodID</td>";
-                                    echo "<td>$prodNm</td>";
-                                    echo "<td>$prodPrice</td>";
-                                    echo "<td>$prodQty</td>";
-                                    echo "<td>$totalPrice</td>";
-                                echo "</tr>";
-                            }
-                        }
-                        else{
-                            echo "Error in fetching data";
-                        }
-
-                        echo "</table>";
-
-                        $sql2 = "select count(*) FROM invoice";
-                        $result2 = $conn->query($sql2);
-                        $row = $result2 ->fetch_row();
-                        $count = ceil($row[0]/4);
-                        for($pageno=1;$pageno<=$count;$pageno++){
-                            ?><a href="invoicesSupp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
-                        }
-
-                        CloseCon($conn);
-                    ?>
-                </article>
-			    <!-- /. PAGE INNER  -->
-            </div>
+            <!-- END PAGE WRAPPER -->
         </div>
         <!-- End div WRAPPER  -->
         

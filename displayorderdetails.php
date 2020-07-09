@@ -21,6 +21,7 @@
 	<head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico">
+			<link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -66,7 +67,7 @@
                             <h1>Order Management System</h1>
 			
 							<!-- INNER PAGE CONTENT  -->
-							<div class = "">
+							<div class = "content">
 								<h2 style="text-align:center">Display Order Details From Database</h2>
 								<table class="table">
 									<tr>

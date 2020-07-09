@@ -35,22 +35,8 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
-        <!-- Style for a href in content div -->
-		<style>
-			.content a:link, a:visited {
-				background-color: #f44336;
-				color: white;
-				padding: 10px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				}
-
-				a:hover, a:active {
-					background-color: red;
-			}
-		</style>
         <header>
             <?php include 'headerSupp.php'; ?>
         </header>
@@ -92,120 +78,104 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1>Order Management System</h1>
-            </div>
+                        </div>
             
-            <div class="content">
-                <article>
-                    <h1 style = "text-align: center">Order Request</h1>
-                    <table class="table">
-                            <tr><p>Please be alert that you will delete the order once you clicked the cancel button!</p></tr>
-                            <tr>
-                                <th> Order ID </th>
-                                <th> Product ID </th>                     
-                                <th> Product Name </th>
-                                <th> Product Quantity </th>
-                                <th> Total Price </th>
-                                <th> Order Status </th>
-                                <th> Availability of Product </th>
-                                <th> Action </th>
-                            </tr>
-                    <?php
-                        /* remove -> include 'conn.php'; bcs
-                        we have put connection inside header page */
-                        $conn = OpenCon();
+                        <div class="content">
+                            <article>
+                                <h1 style = "text-align: center">Order Request</h1>
+                                <table class="table">
+                                        <!-- <tr><p>Please be alert that you will delete the order once you clicked the cancel button!</p></tr> -->
+                                        <tr>
+                                            <th> Order ID </th>
+                                            <th> Product ID </th>                     
+                                            <th> Product Name </th>
+                                            <th> Product Quantity </th>
+                                            <th> Total Price </th>
+                                            <th> Order Status </th>
+                                            <th> Availability of Product </th>
+                                            <th> Action </th>
+                                        </tr>
 
-                        /**Value suppID coming from supplierloginaction.php**/
-	                    $suppID = $_SESSION['login_supplier'];
+                                        <?php
+                                            /* remove -> include 'conn.php'; bcs
+                                            we have put connection inside header page */
+                                            $conn = OpenCon();
+
+                                            /**Value suppID coming from supplierloginaction.php**/
+                                            $suppID = $_SESSION['login_supplier'];
+                                                            
+                                            $sql = "select *
+                                                    from `order_product` op, `product` p, `orders` o, `supplier` s
+                                                    where op.productid = p.productid
+                                                    and o.orderid = op.orderid
+                                                    and p.supplierid = s.supplierid
+                                                    and o.orderstatus = 'PENDING'
+                                                    and s.supplierid = $suppID
+                                                    ORDER BY p.productid ASC";
+                                            $result = $conn->query($sql);
                                         
-                        $sql = "select *
-                                from `order_product` op, `product` p, `orders` o, `supplier` s
-                                where op.productid = p.productid
-                                and o.orderid = op.orderid
-                                and p.supplierid = s.supplierid
-                                and o.orderstatus = 'PENDING'
-                                and s.supplierid = $suppID
-                                ORDER BY p.productid ASC";
-                        $result = $conn->query($sql);
-                                        
-                        if ($result->num_rows > 0) {
-                            //output data of each row
-                                                
-                            while($row = $result->fetch_assoc()){
+                                            if ($result->num_rows > 0) {
+                                                //output data of each row
+                                                                    
+                                                while($row = $result->fetch_assoc()){
+                                                                            
+                                                    $orderid = $row["orderid"];
+                                                    $proID = $row["productid"];
+                                                    $product = $row["productname"];                            
+                                                    $proQty = $row["productqty"];
+                                                    $totalPrice = $row["totalPrice"];                            
+                                                    $status = $row["orderstatus"];
+                                                    $stock = $row["productStock"];
+                                                                            
+                                                    echo "<tr>";
+                                                        echo "<td><a href=displayorderdetails.php?orderid=$orderid>$orderid</a></td>";
+                                                        echo "<td> $proID </td>";
+                                                        echo "<td> $product </td>";
+                                                        echo "<td> $proQty </td>";
+                                                        echo "<td> $totalPrice </td>";
+                                                        echo "<td> $status </td>";    
+                                                        echo "<td> $stock </td>";
+
+                                                        if($proQty <= $stock){
+
+                                                            echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE</button><?php "</td>";
+                                                        }
+
+                                                        echo "<td>" ?><button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT </button> <?php "</td>";
+
+                                                    echo "</tr>";
+                                                }
+                                            }
+                                            else {
+                                                echo "<p>No order request yet</p>";
+                                            }
+                                                            
+                                            echo "</table>";
+                                                            
+                                            //count number of record
+                                            //to calc the possible page we may have
+                                            $sql2 = "select count(*) FROM `orders`";
+                                            $result = $conn->query($sql2);
+                                            $row = $result->fetch_row();
+                                            $count = ceil($row[0]/4);
+                                                            
+                                            //insert into url
+                                            for($pageno=1; $pageno<=$count; $pageno++){
+                                                ?><a href = "orderReq.php?page=<?php echo $pageno;?>"style="text-decoration: none"><?php echo $pageno. " "; ?></a><?php		
+                                            }            
                                                         
-                                $orderid = $row["orderid"];
-                                $proID = $row["productid"];
-                                $product = $row["productname"];                            
-                                $proQty = $row["productqty"];
-                                $totalPrice = $row["totalPrice"];                            
-                                $status = $row["orderstatus"];
-                                $stock = $row["productStock"];
-                                                        
-                                echo "<tr>";
-                                    echo "<td><a href=displayorderdetails.php?orderid=$orderid>$orderid</a></td>";
-                                    echo "<td> $proID </td>";
-                                    echo "<td> $product </td>";
-                                    echo "<td> $proQty </td>";
-                                    echo "<td> $totalPrice </td>";
-                                    echo "<td> $status </td>";    
-                                    echo "<td> $stock </td>";
-                                    
-                                    // echo '<script>console.log('. json_encode($stock) .')</script>';
-                                    if($proQty <= $stock){
-                                        // echo '<script>console.log('. json_encode($stock-$proQty) .')</script>';
-                                        // echo $productLeft ; 
-                                        // echo $proID;
-                                        // echo $suppID;
-                                        //$productLeft = $stock - $proQty;
-
-                                        echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE1</button><?php "</td>";
-
-                                        // $sql3 = "UPDATE `product` p3
-                                        //         SET p3.productStock = $productLeft
-                                        //         WHERE p3.productid = $proID
-                                        //         AND p3.supplierid = $suppID";
-
-                                        // $result3 = $conn->query($sql3);
-									
-                                        // if(! $result3){
-                                        //     die('Could not update data: '. mysqli_error($conn));
-                                        // }
-                                        // else {
-                                        //     echo "";
-                                        // }
-                                    }
-                                    // ?/><td><button onclick="confirmCancel('<?php echo $orderid ?/>')"> REJECT </button></td><?php
-
-                                    echo "<td>" ?><button onclick="confirmCancel('<?php echo $orderid ?>')"> REJECT1 </button> <?php "</td>";
-
-                                echo "</tr>";
-                            }
-                        }
-                        else {
-                            echo "<p>No order request yet</p>";
-                        }
-                                        
-                        echo "</table>";
-                                        
-                        //count number of record
-                        //to calc the possible page we may have
-                        $sql2 = "select count(*) FROM `orders`";
-                        $result = $conn->query($sql2);
-                        $row = $result->fetch_row();
-                        $count = ceil($row[0]/4);
-                                        
-                        //insert into url
-                        for($pageno=1; $pageno<=$count; $pageno++){
-                            ?><a href = "orderReq.php?page=<?php echo $pageno;?>"style="text-decoration: none"><?php echo $pageno. " "; ?></a><?php		
-                        }            
-                                    
-                        CloseCon($conn);
-                    ?>
-                </article>
-                
-            <!-- /. PAGE INNER  -->
+                                            CloseCon($conn);
+                                        ?>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- End of row -->
+                </div>
+                <!-- END PAGE INNER  -->
             </div>
-        <!-- /. PAGE WRAPPER  -->
+            <!-- END PAGE WRAPPER  -->
         </div>
+        <!-- End of Wrapper -->
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
