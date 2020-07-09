@@ -71,6 +71,7 @@
 
                     <div class="content">
                         <h1 style = "text-align: center">Approved Order</h1>
+                        <br>
                         <table class="table">
                             <tr>
                                 <th> Order ID </th>

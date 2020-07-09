@@ -32,6 +32,14 @@
 
           <!-- MAIN CSS -->
           <link rel="stylesheet" href="css/tooplate-style.css">
+
+          <!-- Style for content Wrong Username and Password  -->
+          <style>
+               .content{
+                    color: whitesmoke;
+                    text-align: left;
+               }
+          </style>
      </head>
 
 
@@ -110,8 +118,8 @@
                                         ?>
                                    </article>
 
-                                   <article>
-                                        <h2 style="color:#FF0000;text-align:left">Oops! Wrong username or password !</h2>
+                                   <div class="content">
+                                        <h2>Oops! Wrong username or password !</h2>
                                         <form action="supplierloginaction.php" id="form" method="POST">                                            
                                              
                                         <div class="container">
@@ -126,13 +134,14 @@
                                              <table>
                                                   <tr>
                                                        <td>
-                                                            <input type="submit" style="background-color:green;color:white;width:150px; height:40px;" value="Login">
-                                                            <input type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back">
+                                                            <button type="submit" style="background-color:green;color:white;width:150px; height:40px;" value="Login"> Login </button>
+                                                            <button type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back"> Back </button>
                                                        </td>
                                                   </tr>
                                              </table> 
                                         </div>				
-                                   </article>
+                                   </div>
+                                   <!-- End of div content -->
                               </div>
                               <!-- End of Home-text -->
                          </div>

@@ -69,6 +69,7 @@
 							<!-- INNER PAGE CONTENT  -->
 							<div class = "content">
 								<h2 style="text-align:center">Display Order Details From Database</h2>
+								<br>
 								<table class="table">
 									<tr>
 										<th> Order ID </th>
