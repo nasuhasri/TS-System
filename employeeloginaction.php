@@ -150,7 +150,7 @@
                     Your browser does not support the video tag.
                </video>
           </section>
-          <!-- End div home -->
+          <!-- End section home -->
 
           <!-- SUPPLIER LOGIN -->
           <section id="supplierlogin" class="parallax-section">
