@@ -72,7 +72,7 @@
 		                <div class="content">
 				            <article>
                                 <h2 style = "text-align: center">Display All Order From Database</h2>                                
-                                    
+                                <br>
                                 <table class="table">
                                     <tr>
                                         <th> Order ID </th>

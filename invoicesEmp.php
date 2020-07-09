@@ -1,8 +1,8 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"></html>
 <html>
-	<!-- Sidebar CSS -->
-		
+
+	<!-- Sidebar CSS -->		
 	<head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,29 +17,12 @@
         <link href="assets/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    </head>
+    </head>   
     
-    
-
     <head>
-        <!-- Style for a href in content div -->
-        <!-- <style>
-			.content a:link, a:visited {
-				background-color: #f44336;
-				color: white;
-				padding: 10px 20px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				}
-
-				a:hover, a:active {
-					background-color: red;
-			}
-		</style> -->
-		
         <head>
-			<link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
 		</head>
 		
         <header>
@@ -72,8 +55,8 @@
                     <a class="btn btn-danger square-btn-adjust">Order Management System</a> 
                 </div>
             </nav>
+            <!-- END NAV TOP  -->
 
-            <!-- /. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="main-menu">
@@ -183,18 +166,19 @@
 
                                     CloseCon($conn);
                                 ?>
+
+                                <table class="table">
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <input type="button" value="Back" onclick="history.back()" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </article>
                         </div>
+                        <!-- End of div content -->
                     </div>
                     <!-- End of row -->
-
-                    <table class="table">
-						<tr>
-							<td colspan="2" align="center">
-							    <input type="button" value="Back" onclick="history.back()" />
-							</td>
-						</tr>
-					</table>
                 </div>
                 <!-- END PAGE INNER  -->
             </div>

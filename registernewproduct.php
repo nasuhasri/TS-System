@@ -67,13 +67,13 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                        <h1>Order Management System</h1>  
-                    </div>
+                            <h1>Order Management System</h1>  
+                        </div>
         
-		            <div class="content">
-				        <article>
-							<h2 style="text-align:center">Product Registration Form</h2> <br>
-							<form action="insertproductaction.php " id="form" method="POST">
+                        <div class="content">
+                            <article>
+                                <h2 style="text-align:center">Product Registration Form</h2> <br>
+                                <form action="insertproductaction.php " id="form" method="POST">
                                 <!-- style for table padding:2px; border-spacing:20px;  -->
                                 <!-- style="border:1px solid black; margin-left:auto; margin-right:auto;" -->
 								<table class="table table-borderless">
@@ -107,26 +107,29 @@
                                         </td>
                                     </tr>
 								</table>
-			            </article>  
-			        </div>
-                    <!-- /. PAGE INNER  -->
-                </div>
-                <!-- /. PAGE WRAPPER  -->
+                            </article>
+                        </div>
+                        <!-- End of div content   -->
+                    </div>
+                    <!-- End of div row -->
+			    </div>
+                <!-- /. PAGE INNER  -->
             </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    
-   
-</body>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
+        <!-- MORRIS CHART SCRIPTS -->
+        <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+        <script src="assets/js/morris/morris.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"></script>
+    </body>
 </html>
