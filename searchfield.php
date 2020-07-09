@@ -69,7 +69,7 @@
         
 		                <div class="center">
 				            <article>
-	                            <h1  style="text-align:center">Search Products 1</h1>
+	                            <h1  style="text-align:center">Search Products</h1>
 	                            <form action="searchfieldaction.php" id="form" method="GET">
                                 <table class="table table-borderless">
                                     <tr>
