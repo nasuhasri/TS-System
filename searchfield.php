@@ -36,16 +36,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Tomatus Station</a> 
+                    <a class="navbar-brand" href="welcomepage.php">Tomatus Station</a> 
                 </div>
 
+              <!-- Logout button & register button at the top -->
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
-                    <a href="" class="btn btn-danger square-btn-adjust">Register</a> 
+                    <a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
+					<a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
+					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
                 
                 <div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-                    <a href="tomatus.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
+                    <a class="btn btn-danger square-btn-adjust">Order Management System</a> 
                 </div>
 	        </nav>   
            <!-- END NAV TOP  -->

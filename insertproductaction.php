@@ -26,7 +26,7 @@
 		</header>
 	</head>
 
-	<body>
+	<!-- <body>
 		<div id="wrapper">
 			<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
 				<div class="navbar-header">
@@ -42,32 +42,48 @@
 				<div style="color: white; padding: 15px 50px 5px 50px; float: right;font-size: 16px;">
 					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
 					  <a href="" class="btn btn-danger square-btn-adjust">Register</a> 
+				</div> -->
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="welcomepage.php">Tomatus Station</a> 
+				</div>
+										
+				<!-- Logout button & register button at the top -->
+				<div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+					<a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
+					<a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
+					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
 				</div>
 
 				<div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-					<a href="tomatus.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
-				</div>
-
+					<a class="btn btn-danger square-btn-adjust">Order Management System</a> 
+				</div>				
 	   		</nav>   
-           	<!-- END NAV TOP  -->
-			
-			<nav class="navbar-default navbar-side" role="navigation">
-            	<div class="sidebar-collapse">
+			<!-- END NAV TOP  -->
+						   
+            <nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
 					<ul class="nav" id="main-menu">
 						<?php include 'navigation.php'; ?>
-					</ul>
-               </div>
-            </nav>  
-        	<!-- END NAV SIDE  -->
-			
+					</ul>							
+				</div>							
+			</nav>  
+			<!-- END NAV SIDE  -->
+
 			<div id="page-wrapper" >
 				<div id="page-inner">
 					<div class="row">
 						<div class="col-md-12">
-							<h1>Order Management System</h1> 
-						</div>
-						
-						<div class="content">
+							<h1>Order Management System</h1>   
 							<article>
 								<h2 style="text-align: center">Product Details</h2>
 								<?php
@@ -128,22 +144,21 @@
 										echo "Error : " . $sql. "<br>" . mysqli_error($conn);
 									}
 									CloseCon($conn);
-
 								?>
-								<table class="table">
+								   
+								<table>
 									<tr>
 										<td colspan="2" align="center">
-											<input type="button" value="Home" onclick="window.location.href='homepage.php'"/>
+											<input type="button" value="Home" onclick="window.location.href='welcomepage.php'"/>
 										</td>
 									</tr>
 								</table>
 							</article>
-						</div>
-						<!-- End of div content -->
+                        </div>
 					</div>
 					<!-- End of div row -->
 				</div>
-				<!-- End Page-Inner -->
+				<!-- End of Page-Inner -->
 			</div>
 			<!-- End Page-Wrapper -->
 		</div>

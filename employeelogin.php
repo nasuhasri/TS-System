@@ -58,7 +58,7 @@ http://www.tooplate.com/view/2099-scenic
                     <span class="icon icon-bar"></span>
                </button>
                <!-- lOGO -->
-               <a href="tomatus.php" class="navbar-brand">Tomatus Station Melaka</a>
+               <a href="welcomepage.php" class="navbar-brand">Tomatus Station Melaka</a>
           </div>
 
           <!-- MENU LINKS -->
@@ -66,6 +66,7 @@ http://www.tooplate.com/view/2099-scenic
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="#more" class="smoothScroll">About</a></li>  
                     <li><a href="#more" class="dropdown">Contact</a></li>
+					<li><a href="signup.php" class="smoothScroll">Register</a></li>
                </ul>
           </div>
 
