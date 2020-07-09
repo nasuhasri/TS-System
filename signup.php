@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+</html>
 <?php
 	
 $conn = mysqli_connect("localhost","root","","order_management") or die("Database Not Connected");
@@ -111,9 +119,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					<input type="Password" name="password" placeholder="*******" class="form-control">
 				</div>
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
+				<div>
 				<br>
 				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
 				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='welcomepage.php'" />
+				</div>
 			</form>
 			<h3 style="color:red;"><?php echo @$msg; ?></h3>
 		</div>

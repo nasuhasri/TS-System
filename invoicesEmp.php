@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"></html>
 <html>
 	<!-- Sidebar CSS -->
+		
 	<head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,12 +19,11 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </head>
     
+    
+
     <head>
-        <head>
-            <link rel="shortcut icon" href="images/favicon.ico">
-        </head>
         <!-- Style for a href in content div -->
-        <style>
+        <!-- <style>
 			.content a:link, a:visited {
 				background-color: #f44336;
 				color: white;
@@ -36,8 +36,12 @@
 				a:hover, a:active {
 					background-color: red;
 			}
-		</style>
-        
+		</style> -->
+		
+        <head>
+			<link rel="shortcut icon" href="images/favicon.ico" />
+		</head>
+		
         <header>
             <?php include 'header.php'; ?>
         </header>
@@ -54,14 +58,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Tomatus Station</a> 
+                    <a class="navbar-brand" href="welcomepage.php">Tomatus Station</a> 
                 </div>
+				
+                <!-- Logout button & register button at the top -->
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
+                    <a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
+					<a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
+					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
 
                 <div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-                    <a href="tomatus.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
+                    <a class="btn btn-danger square-btn-adjust">Order Management System</a> 
                 </div>
             </nav>
 
