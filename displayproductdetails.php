@@ -70,7 +70,16 @@
         
 						<div class="content">
 				 			<article>
-								
+								<table class="table">
+									<tr>
+										<th> Product ID </th>
+										<th> Product Name </th>
+										<th> Product Price </th>                   
+										<th> Date Manufactured </th>
+										<th> Supplier ID </th>
+										<th> Supplier Name </th>
+									</tr>
+									
 								<?php
 									$conn = OpenCon();
 									$productid = $_GET["productID"];
@@ -90,29 +99,29 @@
 											$supplierid = $row["supplierid"];
 											$suppliername = $row["suppliername"];
 											
-											echo "<table align=center border=1 cellspacing=0 cellpading=0>";
+											//echo "<table align=center border=1 cellspacing=0 cellpading=0>";
 											echo "<tr>";
-												echo"<td>Product ID</td>";
+												//echo"<td>Product ID</td>";
 												echo"<td>$productid</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Product Name</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Product Name</td>";
 												echo"<td>$productname</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Product Price</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Product Price</td>";
 												echo"<td>$productprice</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Product Date Manufactured</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Product Date Manufactured</td>";
 												echo"<td>$dateManu</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Supplier ID</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Supplier ID</td>";
 												echo"<td>$supplierid</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Supplier Name</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Supplier Name</td>";
 												echo"<td>$suppliername</td>";
 											echo"</tr>";
 										echo "</table>";

@@ -65,15 +65,24 @@
 				<div id="page-inner">
 					<div class="row">
 						<div class="col-md-12">
-							<h1>Order Management System</h1>   
+							<h1 style="text-align: center">Product Details</h1>   
+							<br>
+							<br>
 							<article>
-								<h2 style="text-align: center">Product Details</h2>
+							<table class="table">
+									<tr>
+										<th> Product ID </th>
+										<th> Product Name </th>
+										<th> Product Price </th>                   
+										<th> Date Manufactured </th>
+										<th> Supplier ID </th>
+									</tr>
 								<?php
 									$pID = $_POST["prodID"];
 									$pName = $_POST["fullname"];
 									$dateManufactured = $_POST["dateManu"];
 									$pPrice = $_POST["price"];
-									$sID= $_POST["suppID"];
+									$sID= $_POST["supplier"];
 
 									$conn = OpenCon();
 									$sql = "INSERT INTO product (productid, productname, productprice, productDManufactured, supplierid)
@@ -97,25 +106,25 @@
 												$productdate = $row["productDManufactured"];
 												$supplierid = $row["supplierid"];
 								
-												echo "<table>";
+												//echo "<table>";
 												echo "<tr>";
-													echo "<td>Product ID</td>";
+													//echo "<td>Product ID</td>";
 													echo"<td>$productid</td>";
-												echo"</tr>";
-												echo "<tr>";
-													echo "<td>Product Name</td>";
+												//echo"</tr>";
+												//echo "<tr>";
+													//echo "<td>Product Name</td>";
 													echo"<td>$productname</td>";
-												echo"</tr>";
-												echo "<tr>";
-													echo "<td>Product Price (RM)</td>";
+												//echo"</tr>";
+												//echo "<tr>";
+													//echo "<td>Product Price (RM)</td>";
 													echo"<td>$productprice</td>";
-												echo"</tr>";
-												echo "<tr>";
-													echo "<td>Date Manufactured</td>";
+												//echo"</tr>";
+												//echo "<tr>";
+													//echo "<td>Date Manufactured</td>";
 													echo"<td>$productdate</td>";
-												echo"</tr>";
-												echo "<tr>";
-													echo "<td>Supplier ID</td>";
+												//echo"</tr>";
+												//echo "<tr>";
+													//echo "<td>Supplier ID</td>";
 													echo"<td>$supplierid</td>";
 												echo"</tr>";
 												echo "</table>";
@@ -131,7 +140,7 @@
 								<table>
 									<tr>
 										<td colspan="2" align="center">
-											<input type="button" value="Home" onclick="window.location.href='welcomepage.php'"/>
+											<input type="button" value="Home" onclick="window.location.href='homepage.php'"/>
 										</td>
 									</tr>
 								</table>

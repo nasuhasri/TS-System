@@ -70,7 +70,13 @@
         
 						<div class="content">
 				 			<article>
-								
+								<table class="table">
+									<tr>
+										<th> Supplier ID </th>
+										<th> Supplier Name </th>
+										<th> Supplier Address </th>                   
+										<th> Supplier Tell No </th>
+									</tr>
 								<?php 				
 									$conn = OpenCon();
 									$supplierid = $_GET["supplierID"];
@@ -86,21 +92,21 @@
 											$supplieraddress = $row["supplieraddress"];
 											$supplierno = $row["suppliertellno"];
 											
-											echo "<table align=center border=1 cellspacing=0 cellpading=0>";
+											//echo "<table align=center border=1 cellspacing=0 cellpading=0>";
 											echo "<tr>";
-												echo "<td>Supplier ID</td>";
+												//echo "<td>Supplier ID</td>";
 												echo"<td>$supplierid</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Supplier Name</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Supplier Name</td>";
 												echo"<td>$suppliername</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Supplier Address</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Supplier Address</td>";
 												echo"<td>$supplieraddress</td>";
-											echo"</tr>";
-											echo "<tr>";
-												echo "<td>Phone Number</td>";
+											//echo"</tr>";
+											//echo "<tr>";
+												//echo "<td>Phone Number</td>";
 												echo"<td>$supplierno</td>";
 											echo"</tr>";
 										echo "</table>";
