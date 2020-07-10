@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -138,7 +139,8 @@
 								
 								echo "</table>";
 
-								$sql2 = "select count(*) FROM product";
+                                $sql2 = "select count(*) FROM `product` p
+                                        where p.supplierid = $suppID";
 								$result = $conn->query($sql2);
 								$row = $result ->fetch_row();
 								$count = ceil($row[0]/4);
@@ -148,7 +150,8 @@
 
 								CloseCon($conn);
 							?>
-						</article> 
+                        </article>
+					</div> 
                 </div>
                 <!-- End of page-inner -->
             </div>
