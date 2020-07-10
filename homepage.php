@@ -79,7 +79,7 @@
                         <!-- First column (Total Order) -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
 				            <div class="panel panel-back noti-box">
-					            <span class="icon-box bg-color-red set-icon">
+					            <span class="icon-box bg-color-blue set-icon">
 						            <i class="fa fa-bars"></i>
                                 </span>
                                 
@@ -120,10 +120,10 @@
 				            </div>
                         </div>
                         
-                        <!-- Second column (Total Invoice) -->
+                        <!-- Second column (Total Completed) -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-red set-icon">
+                                <span class="icon-box bg-color-green set-icon">
                                     <i class="fa fa-check-square-o"></i>
                                 </span>
                             
@@ -158,7 +158,7 @@
                         <!-- Third column (Total Pending Order) -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-red set-icon">
+                                <span class="icon-box bg-color-brown set-icon">
                                     <i class="fa fa-clock-o"></i>
                                 </span>
                                 <div class="text-box" >
