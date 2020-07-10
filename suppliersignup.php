@@ -11,7 +11,7 @@
 $conn = mysqli_connect("localhost","root","","order_management") or die("Database Not Connected");
 
 
-if($_SERVER['REQUEST_METHOD'] == 'PeOST')
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
 	if(isset($_POST['submit']))
@@ -20,13 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 		if(isset($_POST['term']))
 		{
 
-			$empid = mysqli_escape_string($conn, $_POST['empID']);
-			$empfname = mysqli_escape_string($conn, $_POST['empFName']);
-			$emplname = mysqli_escape_string($conn, $_POST['empLName']);
-			$empeml = mysqli_escape_string($conn, $_POST['empEml']);
-			$emptell = mysqli_escape_string($conn, $_POST['empTell']);
-			$empsal = mysqli_escape_string($conn, $_POST['empSal']);
-			$emppass = mysqli_escape_string($conn, $_POST['password']);
+			$supplierid = mysqli_escape_string($conn, $_POST['supplierid']);
+			$suppliername = mysqli_escape_string($conn, $_POST['suppliername']);
+			$supplieraddress = mysqli_escape_string($conn, $_POST['supplieraddress']);
+			$suppliertellno = mysqli_escape_string($conn, $_POST['suppliertellno']);
+			$supplieremail = mysqli_escape_string($conn, $_POST['supplieremail']);
+			$supppwd = mysqli_escape_string($conn, $_POST['password']);
 
 			function validate($form_data)
 			{
@@ -34,24 +33,23 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 				return $form_data;
 			}
 
-			$vuserid = validate($empid);
-			$vuserfname = validate($empfname);
-			$vuserlname = validate($emplname);
-			$vuseremail = validate($empeml);
-			$vusertell = validate($emptell);
-			$vusersalary = validate($empsal);
-			$vuserpass = validate($emppass);
+			$vsupid = validate($supplierid);
+			$vsupname = validate($suppliername);
+			$vsupaddress = validate($supplieraddress);
+			$vsuptell= validate($suppliertellno);
+			$vsupemail= validate($supplieremail);
+			$vsuppassword = validate($supppwd);
 
-			if(!empty($vuserid) && !empty($vuserfname) && !empty($vuserlname) && !empty($vuseremail) && !empty($vusertell)  && !empty($vusersalary) && !empty($vuserpass))
+			if(!empty($vsupid) && !empty($vsupname) && !empty($vsupaddress) && !empty($vsuptell) && !empty($vusertell) && !empty($vsuppassword)&& !empty($vsupemail)&& !empty($vsuppassword))
 			{
 
-				$pass = password_hash($vuserpass, PASSWORD_BCRYPT);
+				$pass = password_hash($vsuppassword, PASSWORD_BCRYPT);
 
-				$insert = "INSERT INTO `employee`(`empid`,`empfname`,`emplname`,`empEmail`,`emptellno`,`empsalary`,`emppwd`) VALUES('$vuserid','$vuserfname','$vuserlname','$vuseremail','$vusertell','$vusersalary','$vuserpass')";
+				$insert = "INSERT INTO `supplier`(`supplierid`,`suppliername`,`supplieraddress`,`suppliertellno`,`supplieremail`,`supppswd`) VALUES('$vsupid','$vsupname','$vsupaddress','$vsuptell','$vsupemail','$vsuppassword')";
 
 				if(mysqli_query($conn, $insert))
 				{
-					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+					
 				}
 				else
 				{
@@ -81,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Register User</title>
+<title>Register Supplier</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 
@@ -91,31 +89,30 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 			<h1>Register Now</h1>
 			<form method="post">
 				<div class="form-group">
-					<label>User ID</label>
-					<input type="text" name="empID" placeholder="Enter ID" class="form-control">
+					<label>Supplier ID</label>
+					<input type="text" name="supplierid" placeholder="Enter ID" class="form-control">
 				</div>
 				<div class="form-group">
-					<label>User First Name</label>
-					<input type="text" name="empFName" placeholder="Enter First Name" class="form-control">
+					<label>Supplier Name</label>
+					<input type="text" name="suppliername" placeholder="Enter Name" class="form-control">
 				</div>
 				<div class="form-group">
-					<label>User Last Name</label>
-					<input type="text" name="empLName" placeholder="Enter Last Name" class="form-control">
+					<label>Supplier Address</label>
+					<input type="text" name="supplieraddress" placeholder="Enter Address" class="form-control">
 				</div>
+				
 				<div class="form-group">
-					<label>User Email</label>
-					<input type="text" name="empEml" placeholder="Enter Email" class="form-control">
+					<label>Supplier Contact Number</label>
+					<input type="text" name="suppliertellno" placeholder="Enter Contact Number" class="form-control">
 				</div>
+				
 				<div class="form-group">
-					<label>User Telephone Number</label>
-					<input type="text" name="empTell" placeholder="Enter Telephone Number" class="form-control">
+					<label>Supplier Email</label>
+					<input type="text" name="supplieremail" placeholder="Enter Email" class="form-control">
 				</div>
+				
 				<div class="form-group">
-					<label>User Salary</label>
-					<input type="text" name="empSal" placeholder="Enter Salary" class="form-control">
-				</div>
-				<div class="form-group">
-					<label>User Password</label>
+					<label>Supplier Password</label>
 					<input type="Password" name="password" placeholder="*******" class="form-control">
 				</div>
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
