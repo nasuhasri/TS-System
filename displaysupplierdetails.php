@@ -63,12 +63,14 @@
 				<div id="page-inner">
 					<div class="row">
 						<div class="col-md-12">
-							<h1>Order Management System</h1> 
+							<h1 style="text-align:center">Display Supplier Details From Database</h1>
+							<br>
+							<br>
 						</div>
         
 						<div class="content">
 				 			<article>
-								<h2 style="text-align:center">Display Supplier Details From Database</h2>
+								
 								<?php 				
 									$conn = OpenCon();
 									$supplierid = $_GET["supplierID"];

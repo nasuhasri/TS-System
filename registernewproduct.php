@@ -81,7 +81,7 @@
 								<table class="table table-borderless">
                                     <tr> 
                                         <td colspan="2" align="center">Product ID</td>
-                                        <td><input type="text" name="prodID" maxlength="50" placeholder="2001322" required></td>
+                                        <td><input type="text" name="prodID" maxlength="50" placeholder="303" required></td>
                                     </tr>
 									<tr> 
 										<td colspan="2" align="center">Product Name</td>
@@ -97,7 +97,7 @@
 									</tr>
 									<tr>
 										<td colspan="2" align="center">Supplier ID</td>
-										<td><input type="text" name="suppID" maxlength="50" placeholder="1" required></td>
+										<td><input type="text" name="suppID" maxlength="50" placeholder="1001" required></td>
                                     </tr>
 								</table>
                                 <br>

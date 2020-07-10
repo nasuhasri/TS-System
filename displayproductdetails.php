@@ -64,6 +64,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h1 style="text-align:center">Display Product Details From Database</h1>  
+							<br>
+							<br>
 						</div>
         
 						<div class="content">

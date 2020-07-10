@@ -79,10 +79,10 @@
 								<thead class="thead-dark">
 									<tr>
 										<th>Product ID</th>
+										<th>Supplier ID</th>
 										<th>Product Name</th>
 										<th>Product Price</th>
 										<th>Date Manufactured</th>
-										<th>Supplier ID</th>
 									</tr>
 								</thead>
 
@@ -115,16 +115,16 @@
 									while($row = $result->fetch_assoc()){
 
 										$productid = $row["productid"];
+										$supplierid = $row["supplierid"];
 										$productname =$row["productname"];
 										$productprice = $row["productprice"];
 										$productmanufactured = $row["productDManufactured"];
-										$supplierid = $row["supplierid"];
 									echo "<tr>";
 										echo "<td><a href=displayproductdetails.php?productID=$productid>$productid</a></td>";
+										echo "<td><a href=displaysupplierdetails.php?supplierID=$supplierid>$supplierid</a></td>";
 										echo "<td>$productname</td>";
 										echo "<td>$productprice</td>";
 										echo "<td>$productmanufactured</td>";
-										echo "<td><a href=displaysupplierdetails.php?supplierID=$supplierid>$supplierid</a></td>";
 									echo "</tr>";
 									}
 								}else 

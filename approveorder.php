@@ -62,12 +62,12 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Order Management System</h1>
+                            <h1 style="text-align:center">Approve Order</h1>
             			</div>
 			
 						<div class="">
 							<article>
-								<h2 style="text-align:center">Approve Order</h2>
+								
 								<?php
 									$conn = OpenCon();
 
