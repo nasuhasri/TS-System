@@ -67,12 +67,14 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Order Management System</h1>  
+                            <h1 style="text-align:center">Product Registration Form</h1>  
+							<br>
+							<br>
                         </div>
         
                         <div class="content">
                             <article>
-                                <h2 style="text-align:center">Product Registration Form</h2> <br>
+                                <!-- <h2 style="text-align:center">Product Registration Form</h2> <br> -->
                                 <form action="insertproductaction.php " id="form" method="POST">
                                 <!-- style for table padding:2px; border-spacing:20px;  -->
                                 <!-- style="border:1px solid black; margin-left:auto; margin-right:auto;" -->

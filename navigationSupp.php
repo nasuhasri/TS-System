@@ -41,10 +41,13 @@
 				</li>				
                 <li>
                     <a  href="orderReq.php"><i class="fa fa-desktop fa-3x"></i>Order Request</a>
-                </li>                    
+                </li>  
+			    <li>
+                    <a  href="displayproductSupp.php"><i class="fa fa-edit fa-3x"></i> All Products </a>
+                </li>				
                 <li>
                     <a  href="invoicesSupp.php"><i class="fa fa-edit fa-3x"></i> Invoices </a>
-                </li>			
+                </li>		
             </ul>               
 		</div>
     </nav>
