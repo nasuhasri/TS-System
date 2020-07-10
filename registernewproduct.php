@@ -97,7 +97,20 @@
 									</tr>
 									<tr>
 										<td colspan="2" align="center">Supplier ID</td>
-										<td><input type="text" name="suppID" maxlength="50" placeholder="1001" required></td>
+										<td>
+											<select id="supplier" name="supplier">
+												<option>Select</option>
+												<?php
+													$conn = OpenCon();
+													$sql = "select * from supplier s";
+													$result = $conn->query($sql);
+				
+													while($row = $result->fetch_assoc()) {
+														echo "<option value= '". $row['supplierid'] ."'>" .$row['suppliername']. "</option>";
+													}
+												?>
+											</select>						
+										</td>
                                     </tr>
 								</table>
                                 <br>

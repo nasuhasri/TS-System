@@ -33,7 +33,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="assets/img/supp.png" class="user-image img-responsive"/>
 					<p style="font-size:18; color:white;"><?php echo " " .$login_name. " (Supplier ID: " .$login_id. ")";?></p>
 				</li>
                 <li>
