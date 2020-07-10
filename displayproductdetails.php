@@ -63,7 +63,7 @@
 				<div id="page-inner">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 style="text-align:center">Display Product Details From Database</h1>  
+							<h1 style="text-align:center">Product Details From Database</h1>  
 							<br>
 							<br>
 						</div>
@@ -91,7 +91,7 @@
 											$suppliername = $row["suppliername"];
 											echo "<table>";
 											echo "<tr>";
-												echo "<td>Product ID</td>";
+												echo"<td>Product ID</td>";
 												echo"<td>$productid</td>";
 											echo"</tr>";
 											echo "<tr>";

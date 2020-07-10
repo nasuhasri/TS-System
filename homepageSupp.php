@@ -76,8 +76,8 @@
                         <!-- First TexBox (Completed Order) -->
 					    <div class="col-md-5 col-sm-10 col-xs-10">           
 				            <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-brown set-icon">
-                                    <i class="fa fa-check-square"></i>
+                                <span class="icon-box bg-color-red set-icon">
+                                    <i class="fa fa-check-square-o"></i>
                                 </span>
                     
                                 <div class="text-box" >
@@ -120,8 +120,8 @@
                         <!-- Second TextBox (Total Sales) -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
 				            <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-brown set-icon">
-                                    <i class="fa fa-rocket"></i>
+                                <span class="icon-box bg-color-red set-icon">
+                                    <i class="fa fa-dollar"></i>
                                 </span>
                                 
                                 <div class="text-box">
@@ -161,8 +161,8 @@
                         <!-- First text-box (Pending Order)  -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-brown set-icon">
-                                    <i class="fa fa-spinner fa-spin"></i>
+                                <span class="icon-box bg-color-red set-icon">
+                                    <i class="fa fa-clock-o"></i>
                                 </span>
                                 <div class="text-box" >
                                     <?php
@@ -204,8 +204,8 @@
                         <!-- Second text-box (Rejected Order)  -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
-                                <span class="icon-box bg-color-brown set-icon">
-                                    <i class="fa fa-square"></i>
+                                <span class="icon-box bg-color-red set-icon">
+                                    <i class="fa fa-minus-circle"></i>
                                 </span>
                                 <div class="text-box">
                                     <?php
