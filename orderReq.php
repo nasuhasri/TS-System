@@ -105,15 +105,35 @@
 
                                             /**Value suppID coming from supplierloginaction.php**/
                                             $suppID = $_SESSION['login_supplier'];
+
+                                            //get page number
+                                            $page = 0;
+
+                                            //set variable
+                                            if(isset($_GET["page"])==true) {
+                                                $page = ($_GET["page"]);
+                                            }
+                                            else {
+                                                $page = 0;	
+                                            }
+
+                                            //algo for pagination in sql
+                                            if ($page=="" || $page=="1"){
+                                                    $page1 = 0;
+                                            }
+                                            else {
+                                                $page1= ($page*4)-4;
+                                            }
                                                             
-                                            $sql = "select *
-                                                    from `order_product` op, `product` p, `orders` o, `supplier` s
-                                                    where op.productid = p.productid
-                                                    and o.orderid = op.orderid
-                                                    and p.supplierid = s.supplierid
-                                                    and o.orderstatus = 'PENDING'
-                                                    and s.supplierid = $suppID
-                                                    ORDER BY p.productid ASC";
+                                            $sql = "SELECT *
+                                                    FROM `order_product` op, `product` p, `orders` o, `supplier` s
+                                                    WHERE op.productid = p.productid
+                                                    AND o.orderid = op.orderid
+                                                    AND p.supplierid = s.supplierid
+                                                    AND o.orderstatus = 'PENDING'
+                                                    AND s.supplierid = $suppID
+                                                    ORDER BY o.orderdate, o.ordertime DESC
+                                                    limit $page1,4";
                                             $result = $conn->query($sql);
                                         
                                             if ($result->num_rows > 0) {
@@ -156,7 +176,10 @@
                                                             
                                             //count number of record
                                             //to calc the possible page we may have
-                                            $sql2 = "select count(*) FROM `orders`";
+                                            $sql2 = "SELECT count(*) FROM `orders` o, `product` p, `supplier` s
+                                                    WHERE o.orderproduct = p.productname
+                                                    AND p.supplierid = s.supplierid
+                                                    AND s.supplierid = $suppID";
                                             $result = $conn->query($sql2);
                                             $row = $result->fetch_row();
                                             $count = ceil($row[0]/4);
