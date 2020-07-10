@@ -85,7 +85,8 @@
 											$suppliername =$row["suppliername"];
 											$supplieraddress = $row["supplieraddress"];
 											$supplierno = $row["suppliertellno"];
-											echo "<table>";
+											
+											echo "<table align=center border=1 cellspacing=0 cellpading=0>";
 											echo "<tr>";
 												echo "<td>Supplier ID</td>";
 												echo"<td>$supplierid</td>";
