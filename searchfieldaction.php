@@ -67,14 +67,23 @@ font-size: 16px;"><a class="btn btn-danger square-btn-adjust">Order Management S
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h1>Order Management System</h1>   
-                   
+                     <h1 style="text-align:center">Details of The Products</h1>  
+                     <br>
+					 <br>
                     </div>
         
 		<div class="">
 				 <article>
-		
-						<h2 style="text-align:center">Details of The Products</h2>
+						<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th>Product Name</th>
+										<th>Product ID</th>
+										<th>Date Manufactured</th>
+										<th>Price (RM)</th>
+									</tr>
+					        </thead>
+						
 						
 						<?php
 							$searching=$_GET["search"];
@@ -117,13 +126,13 @@ font-size: 16px;"><a class="btn btn-danger square-btn-adjust">Order Management S
 								  if($result->num_rows > 0)
 								  {
 									 
-									  echo"<table>";
-										echo "<tr>";
-										echo "<th>Product Name</th>";
-										echo "<th>Product ID</th>";
-										echo "<th>Product Manufacturer</th>";
-										echo "<th>Price (RM)</th>";
-										echo "</tr>";
+									  //echo"<table>";
+										//echo "<tr>";
+										//echo "<th>Product Name</th>";
+										//echo "<th>Product ID</th>";
+										//echo "<th>Date Manufacturer</th>";
+										//echo "<th>Price (RM)</th>";
+										//echo "</tr>";
 										
 										if($result->num_rows>0)
 										//output data of each row
@@ -183,13 +192,14 @@ font-size: 16px;"><a class="btn btn-danger square-btn-adjust">Order Management S
 							CloseCon($conn);
 							
 							?>
-							<table>
-								<tr>
-									<td colspan="2" align="right">
-										<input type="button" value="Back" onclick="history.back()" />
-									</td>
-								</tr>
-							</table>
+								<table class="table">
+									<tr>
+										<td></td>
+											<td colspan="2" align="right">
+												<input type="button" value="Back" onclick="history.back()" />
+											</td>
+									</tr>
+								</table>	
 		</article>  
 			</div>
              <!-- /. PAGE INNER  -->

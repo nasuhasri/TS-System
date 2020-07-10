@@ -120,7 +120,7 @@
 				            </div>
                         </div>
                         
-                        <!-- Second column (Total Completed) -->
+                        <!-- Second column (Total Invoice) -->
                         <div class="col-md-5 col-sm-10 col-xs-10">           
                             <div class="panel panel-back noti-box">
                                 <span class="icon-box bg-color-green set-icon">

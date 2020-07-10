@@ -19,7 +19,6 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
-            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -135,12 +134,11 @@
 									echo "</tr>";
 									}
 								}else 
-									echo "Error in fetching data";
+									echo "There's no data anymore";
 								
 								echo "</table>";
 
-                                $sql2 = "select count(*) FROM `product` p
-                                        where p.supplierid = $suppID";
+								$sql2 = "select count(*) FROM product";
 								$result = $conn->query($sql2);
 								$row = $result ->fetch_row();
 								$count = ceil($row[0]/4);
@@ -150,8 +148,7 @@
 
 								CloseCon($conn);
 							?>
-                        </article>
-					</div> 
+						</article> 
                 </div>
                 <!-- End of page-inner -->
             </div>
