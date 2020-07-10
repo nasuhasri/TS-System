@@ -77,12 +77,14 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Order Management System</h1>
+                            <h1 style = "text-align: center">Order Request</h1>
+							<br>
+							<br>
                         </div>
             
                         <div class="content">
                             <article>
-                                <h1 style = "text-align: center">Order Request</h1>
+                                
                                 <table class="table">
                                         <!-- <tr><p>Please be alert that you will delete the order once you clicked the cancel button!</p></tr> -->
                                         <tr>

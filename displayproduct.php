@@ -67,12 +67,14 @@
             	<div id="page-inner">
                 	<div class="row">
                     	<div class="col-md-12">
-                     		<h1>Order Management System</h1>  
+                     		<h1 style="text-align: center">List Of Products</h1>
+							<br>
+							<br>
                     </div>
         
 					<div class="content">
 						<article>
-							<h2 style="text-align: center">List Of Products</h2>
+							
 							<table class="table">
 								<thead class="thead-dark">
 									<tr>

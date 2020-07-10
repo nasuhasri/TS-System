@@ -64,13 +64,15 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Order Management System</h1>
+                            <h1 style="text-align:center">Invoices</h1>
+							<br>
+							<br>
                         </div>
 
                         <!-- INNER PAGE CONTENT  -->
                         <div class = "content">			
                             <article>
-                                <h2 style="text-align:center">Invoices</h2>
+                                
                                 <table class="table">
                                     <tr>
                                         <th> Invoice ID        </th>

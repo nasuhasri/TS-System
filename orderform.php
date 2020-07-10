@@ -100,13 +100,15 @@
 				<div id="page-inner">
 					<div class="row">
 						<div class="col-md-12">
-							<h1>Order Management System</h1>   
+							<h1 style = "text-align: center"> Order Product Form</h1>
+							<br> 
+							<br>
 						
 			</div>
 			
 			<div class="">
 				<article>
-					<h2 style = "text-align: center"> Order Product Form</h2> <br>
+					
 					<form action="insertorderaction.php" id="form" method="POST">					
 					<table class="table table-borderless">
 						<tr>
