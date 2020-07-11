@@ -71,9 +71,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 									/**Value is supplierid coming from supplierloginaction.php**/
 									$suppID = $_SESSION['login_supplier'];						
 
-									$sql1 = "SELECT * FROM `employee` e, `orders` o
-											WHERE o.empid=e.empid
-											AND o.orderid = $orderid";
+									$sql1 = "SELECT * FROM `supplier` s, `employee` e
+											WHERE s.empid=e.empid";
 									
 									$result1 = $conn->query($sql1);
 
@@ -91,20 +90,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 									/* Get empEmail and empfname from $val */
 									foreach($val as $row){
-										$email = $row["empEmail"];
-										$name = $row["empfname"];
+										$email = $row["supplieremail"];
+										$name = $row["suppliername"];
 									}
 
 									try {
 										//Server settings
-										//$mail->SMTPDebug = 2;                              // Enable verbose debug output
-										$mail->isSMTP();                                     // Set mailer to use SMTP
-										$mail->Host       = 'smtp.gmail.com';                // Specify main and backup SMTP servers
-										$mail->SMTPAuth   = true;                            // Enable SMTP authentication
-										$mail->Username   = 'nasuhasri00@gmail.com';         // SMTP username
-										$mail->Password   = 'Android00';                     // SMTP password
-										$mail->SMTPSecure = 'tls';                           // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
-										$mail->Port       = 587;                             // TCP port to connect to
+										//$mail->SMTPDebug = 2;                                      // Enable verbose debug output
+										$mail->isSMTP();                                            // Set mailer to use SMTP
+										$mail->Host       = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
+										$mail->SMTPAuth   = true;                                 // Enable SMTP authentication
+										$mail->Username   = 'nursyahirahamirahariffin@gmail.com';// SMTP username
+										$mail->Password   = 'Android00';                        // SMTP password
+										$mail->SMTPSecure = 'tls';                             // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
+										$mail->Port       = 587;                              // TCP port to connect to
 									
 										//Recipients
 										$mail->setFrom('admin@example.com', $suppID);
@@ -117,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 						
 										// Content
 										$mail->isHTML(true);                                  // Set email format to HTML
-										$mail->Subject = 'Order Approved';
+										$mail->Subject = 'Supplier Account Successfully Created';
 										$mail->Body    = file_get_contents('email.html');
 										//$mail->Body    = include('email.html');
 										$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
