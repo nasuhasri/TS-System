@@ -148,7 +148,11 @@
 
                                     echo "</table>";
 
-                                    $sql2 = "select count(*) FROM invoice";
+                                    $sql2 = "SELECT count(*) FROM `orders` o, `product` p, `supplier` s
+                                            WHERE o.orderproduct = p.productname
+                                            AND p.supplierid = s.supplierid
+                                            AND o.orderstatus = 'APPROVED'
+                                            AND s.supplierid = $suppID";
                                     $result2 = $conn->query($sql2);
                                     $row = $result2 ->fetch_row();
                                     $count = ceil($row[0]/4);

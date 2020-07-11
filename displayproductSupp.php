@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'headerSupp.php'; ?>
@@ -138,7 +139,9 @@
 								
 								echo "</table>";
 
-								$sql2 = "select count(*) FROM product";
+                                $sql2 = "SELECT count(*) FROM `product` p, `supplier` s
+                                        WHERE p.supplierid = s.supplierid
+                                        AND s.supplierid = $suppID";
 								$result = $conn->query($sql2);
 								$row = $result ->fetch_row();
 								$count = ceil($row[0]/4);

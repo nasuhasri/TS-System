@@ -179,6 +179,7 @@
                                             $sql2 = "SELECT count(*) FROM `orders` o, `product` p, `supplier` s
                                                     WHERE o.orderproduct = p.productname
                                                     AND p.supplierid = s.supplierid
+                                                    AND o.orderstatus = 'PENDING'
                                                     AND s.supplierid = $suppID";
                                             $result = $conn->query($sql2);
                                             $row = $result->fetch_row();
