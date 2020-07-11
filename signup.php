@@ -37,13 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			if(!empty($vuserid) && !empty($vuserfname) && !empty($vuserlname) && !empty($vuseremail) && !empty($vusertell)  && !empty($vusersalary) && !empty($vuserpass))
 			{
 
-				$pass = password_hash($vuserpass, PASSWORD_BCRYPT);
+				$pass = password_hash($vuserpass, PASSWORD_DEFAULT);
 
 				$insert = "INSERT INTO `employee`(`empid`,`empfname`,`emplname`,`empEmail`,`emptellno`,`empsalary`,`emppwd`) VALUES('$vuserid','$vuserfname','$vuserlname','$vuseremail','$vusertell','$vusersalary','$vuserpass')";
 
 				if(mysqli_query($conn, $insert))
 				{
 					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+					
 					
 				}
 				else
@@ -114,7 +115,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				</div>
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
 				<br>
-				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
+				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='employeelogin.php'"> <br>
 				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='homepage.php'" />
 			</form>
 			<h3 style="color:red;"><?php echo @$msg; ?></h3>
