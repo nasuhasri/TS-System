@@ -65,7 +65,7 @@
                             <h1 style="text-align:center">Approve Order</h1>
             			</div>
 			
-						<div class="">
+						<div class="content">
 							<article>
 								
 								<?php
@@ -74,6 +74,7 @@
 									//take order id from url
 									$orderid = $_GET["orderid"];
 									
+									/** Sql to update order status becomes 'APPROVED' **/
 									$sql = "UPDATE `orders` o
 											SET o.orderstatus='APPROVED'
 											WHERE o.orderid=$orderid";
@@ -88,7 +89,9 @@
 
 									/**Value suppID coming from supplierloginaction.php**/
 									$suppID = $_SESSION['login_supplier'];
-                                        
+									
+									/** Sql to get details from database to **/
+									/** perform availabilty product process **/
 									$sqlStock = "SELECT *
 											FROM `product` p, `orders` o, `order_product` op
 											where p.productname = o.orderproduct
@@ -106,9 +109,11 @@
 											$proID = $row["productid"];
 											$stock = $row["productStock"];
 
+											/** Check avaialbilty of product **/
 											if($proQty <= $stock){
 												$productLeft = $stock - $proQty;
 
+												/** Update productStock **/
 												$sqlUpdate = "UPDATE `product` p3, `orders` o
 															SET p3.productStock = $productLeft
 															WHERE p3.productid = $proID
@@ -129,7 +134,6 @@
 											}
 										}
 									}
-
 
 									/* Insert data into table invoice */
 									/* Get invID using rand method */
@@ -193,21 +197,21 @@
 
 									try {
 										//Server settings
-										//$mail->SMTPDebug = 2;                                       // Enable verbose debug output
-										$mail->isSMTP();                                            // Set mailer to use SMTP
-										$mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-										$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-										$mail->Username   = 'nasuhasri00@gmail.com';                     // SMTP username
-										$mail->Password   = 'Android00';                               // SMTP password
-										$mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
-										$mail->Port       = 587;                                    // TCP port to connect to
+										//$mail->SMTPDebug = 2;                              // Enable verbose debug output
+										$mail->isSMTP();                                     // Set mailer to use SMTP
+										$mail->Host       = 'smtp.gmail.com';                // Specify main and backup SMTP servers
+										$mail->SMTPAuth   = true;                            // Enable SMTP authentication
+										$mail->Username   = 'nasuhasri00@gmail.com';         // SMTP username
+										$mail->Password   = 'Android00';                     // SMTP password
+										$mail->SMTPSecure = 'tls';                           // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
+										$mail->Port       = 587;                             // TCP port to connect to
 									
 										//Recipients
 										$mail->setFrom('admin@example.com', $suppID);
 										$mail->addAddress($email, $name); 
 									
 										// Attachments
-										//$mail->addAttachment('/home/cpanelusername/attachment.txt');         // Add attachments
+										//$mail->addAttachment('/home/cpanelusername/attachment.txt');          // Add attachments
 										//$mail->addAttachment('/home/cpanelusername/image.jpg', 'new.jpg');    // Optional name
 										//$mail->addAttachment('email.html');  
 						
@@ -217,8 +221,6 @@
 										$mail->Body    = file_get_contents('email.html');
 										//$mail->Body    = include('email.html');
 										$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-										//$headers .= "MIME-Version: 1.0\r\n";
-										//$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 										$mail->send();
 										echo '';
@@ -230,6 +232,7 @@
 								?>
 							</article>
 						</div>
+						<!-- End of div content -->
 					</div>
 					<!-- End of row -->
 
@@ -273,9 +276,9 @@
                 </div>
 				<!-- END PAGE INNER  -->
 			</div>
-			<!-- /. PAGE WRAPPER  -->
+			<!-- END PAGE WRAPPER  -->
 		</div>		
-		<!-- /. WRAPPER  -->
+		<!-- END WRAPPER  -->
 
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
         <!-- JQUERY SCRIPTS -->

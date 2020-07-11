@@ -105,7 +105,7 @@
 											$productprice = $row['productprice'];
 											$supplierid = $row['supplierid'];
 											
-											/* Insert sql into database */
+											/* Insert sql into table order_product */
 											$sql2 = "INSERT INTO `order_product` (orderid, productid, productqty)
 												VALUES ($orderID, $productid, $productqty)";
 

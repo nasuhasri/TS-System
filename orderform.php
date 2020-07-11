@@ -20,26 +20,62 @@
 		<head>
 			<link rel="shortcut icon" href="images/favicon.ico" />
 			<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+			
 			<script type="text/javascript">
+				/* Function to validate the form */
+				function validateForm(){
+					var supplier =  document.forms["orderForm"]["supplier"];
+					var prodNm =  document.forms["orderForm"]["productname"];
+					var prodQty = document.forms["orderForm"]["productqty"];
+
+					if (supplier.selectedIndex < 1)                  
+					{ 
+						alert("Please enter your supplier."); 
+						supplier.focus(); 
+						return false;
+					}
+
+					if (prodNm.selectedIndex < 1)                  
+					{ 
+						alert("Please enter your product."); 
+						prodNm.focus(); 
+						return false; 
+					}
+
+					if (prodQty == "null" || prodQty < 0)                  
+					{ 
+						alert("Please enter your quantity."); 
+						prodQty.focus(); 
+						return false; 
+					}
+
+					return true;
+				}
+				/* End function to validate the form */
+
 				function confirmSubmit()
 				{
-					if(confirm('Are you sure you want to submit the order'))
-					{
-						window.location.href= 'insertorderaction.php';
+					if(confirm('Are you sure you want to submit the order')){
+						/* No need to put window.location here as user will be only
+						   go to insertorderaction.php if everything is true */
+
+						// window.location.href= 'insertorderaction.php';
 					}
 					else {
 						return false;
 					}
-				}			
+				}					
 			</script>
+
+			<!-- Function to create dependent dropdown box -->
 			<script>
 				$(document).ready(function() {
 					$("#supplier").change(function() {
 						var supplierid = $(this).children("option:selected").val();
 						if(supplierid != "") { 
-							// Dekat sini kita ada buat ajax, 
-							// kita pass value suppiler yang selected
-							// ke orderform.php
+							/* Dekat sini kita ada buat ajax, 
+							   kita pass value supplier yang selected
+							   ke orderform.php */
 							console.log(supplierid);
 							$.ajax({
 								url: "orderformajax.php",
@@ -50,11 +86,12 @@
 								}
 							});
 						} else {
-							$("#show-product").html('<option>No values</option>');
+							$("#show-product").html('<option>Select supplier first</option>');
 						}
 					});
 				});
 			</script>
+			<!-- End of function dependent dropdown box -->
 		</head>
 		<header>
 			<?php include 'header.php'; ?>
@@ -104,62 +141,66 @@
 							<br> 
 							<br>
 						
-			</div>
+						</div>
 			
-			<div class="">
-				<article>
-					
-					<form action="insertorderaction.php" id="form" method="POST">					
-					<table class="table table-borderless">
-						<tr>
-							<td colspan="2" align="center">Supplier</td>
-							<td>
-								<select id="supplier" name="supplier">
-									<option>Select</option>
-									<?php
-										$conn = OpenCon();
-										$sql = "select * from supplier s";
-										$result = $conn->query($sql);
-	
-										while($row = $result->fetch_assoc()) {
-											echo "<option value= '". $row['supplierid'] ."'>" .$row['suppliername']. "</option>";
-										}
-									?>
-								</select>						
-							</td>
-						</tr>
+						<div class="content">
+							<article>								
+								<form action="insertorderaction.php" id="form" name="orderForm" method="POST" onsubmit="return (validateForm())">					
+								<table class="table table-borderless">
+									<tr>
+										<td colspan="2" align="center">Supplier</td>
+										<td>
+											<select id="supplier" name="supplier">
+												<option value="0">Select Supplier</option>
+												<?php
+													$conn = OpenCon();
+													$sql = "select * from supplier s";
+													$result = $conn->query($sql);
+				
+													while($row = $result->fetch_assoc()) {
+														echo "<option value= '". $row['supplierid'] ."'>" .$row['suppliername']. "</option>";
+													}
+												?>
+											</select>						
+										</td>
+									</tr>
 
-						<tr>
-							<td colspan="2" align="center">Product Name</td>
-							<td>
-								<select id="productname" name="productname">
-									<option>Select</option>
-									<option id="show-product" name="selectedProduct">
-										
-									</option>
-								</select> <br>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2" align="center">Product Quantity</td>
-							<td><input type="int" name="productqty" maxlength="10" placeholder="10" required><br></td>
-						</tr>
-					</table>
-					<table class="table table-borderless">
-						<tr>
-							<td colspan="2" align="center">
-								<input type="submit" value="Submit" name="submit" onclick="confirmSubmit()">
-								<input type="reset" value="Reset">
-							</td>
-						</tr>					
-					</table>				
-				</article>
-				<!-- /. PAGE INNER  -->  
+									<tr>
+										<td colspan="2" align="center">Product Name</td>
+										<td>
+											<select id="productname" name="productname">
+												<option value="0">Select Supplier First</option>
+												<option id="show-product" name="selectedProduct"></option>
+											</select> <br>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center">Product Quantity</td>
+										<td><input type="number" min="0" name="productqty" maxlength="10" placeholder="150" required><br></td>
+									</tr>
+								</table>
+
+								<table class="table table-borderless">
+									<tr>
+										<td colspan="2" align="center">
+											<!-- onclick="confirmSubmit()" -->
+											<input type="submit" value="Submit" name="submit" onclick="confirmSubmit()">
+											<input type="reset" value="Reset">
+										</td>
+									</tr>					
+								</table>				
+							</article>
+						</div>
+						<!-- End of div content -->
+					</div>
+					<!-- End of div row -->
+				</div>
+				<!-- END PAGE INNER  -->  
 			</div>
-			<!-- /. PAGE WRAPPER  -->
-		</div>
-		
-		<!-- /. WRAPPER  -->
+			<!-- END PAGE WRAPPER  -->
+		</div>		
+		<!-- END WRAPPER  -->
+
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="assets/js/jquery-1.10.2.js"></script>
