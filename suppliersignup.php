@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$vsupemail= validate($supplieremail);
 			$vsuppassword = validate($supppwd);
 
-			if(!empty($vuserid) && !empty($vsupid) && !empty($vsupname) && !empty($vsupaddress) && !empty($vsuptell) && !empty($vusertell) && !empty($vsuppassword)&& !empty($vsupemail)&& !empty($vsuppassword))
+			if(!empty($vuserid) && !empty($vsupid) && !empty($vsupname) && !empty($vsupaddress) && !empty($vsuptell) && !empty($vsupemail)  && !empty($vsuppassword))
 			{
 
 				$pass = password_hash($vsuppassword, PASSWORD_BCRYPT);
@@ -126,8 +126,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
 				<div>
 				<br>
-				<input type="submit"style="background-color:blue;color:white;width:150px; height:40px;" value="Submit">
-											<input type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back">
+				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
+				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='homepage.php'" />
 				</div>
 			</form>
 			<h3 style="color:red;"><?php echo @$msg; ?></h3>
