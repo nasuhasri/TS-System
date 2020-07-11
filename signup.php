@@ -44,6 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				if(mysqli_query($conn, $insert))
 				{
 					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+					
 				}
 				else
 				{
