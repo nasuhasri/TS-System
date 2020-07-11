@@ -40,7 +40,7 @@
 						<p style="font-size:18; color:white;"><?php echo " " .$login_name. " (Staff ID: " .$login_id. ")";?></p>
 					</li>			
 					
-                    <li> <a href="homepage.php"><i class="fa fa-dashboard fa-3x"></i> Home</a> </li>
+                    <li> <a href="homepage.php"><i class="fa fa-dashboard fa-3x"></i>Hello Home</a> </li>
                     <li> <a href="registernewproduct.php"><i class="fa fa-desktop fa-3x"></i>Register New Product</a> </li>
                     <li> <a href="searchfield.php"><i class="fa fa-qrcode fa-3x"></i>Search Product</a> </li>
 					<li> <a href="orderform.php"><i class="fa fa-bar-chart-o fa-3x"></i>Order Product</a> </li>	
