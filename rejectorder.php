@@ -188,6 +188,14 @@
 					</div>
 					<!-- End of Second Row -->
 
+					<table class="table">
+						<tr>
+							<td colspan="2" align="center">
+								<input type="button" value="Homepage" onclick="window.location.href='homepageSupp.php'" />
+							</td>
+						</tr>
+					</table>
+
 				</div>
 				<!--END PAGE INNER  -->
 			</div>
