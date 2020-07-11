@@ -30,24 +30,17 @@
 			<!-- Top Navigation -->
         	<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             	<div class="navbar-header">
-                	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-                	<a class="navbar-brand" href="welcomepage.php">Tomatus Station</a> 
+                	<a class="navbar-brand" href="homepage.php">Tomatus Station</a> 
 				</div>
 				
 				<!-- Logout button & register button at the top -->
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-                    <a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
 					<a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
 					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
 
 				<div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-					<a class="btn btn-danger square-btn-adjust">Order Management System</a> 
+                    <a href="homepage.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
 				</div>
 	   		</nav>   
 			<!-- END NAV TOP  -->
@@ -66,12 +59,14 @@
             	<div id="page-inner">
                 	<div class="row">
                     	<div class="col-md-12">
-							<h1>Order Management System</h1>   
+								<h1 style = "text-align:center">Insert Order Data into Database</h1>
+								<br>
+								<br>
 						</div>
         
 						<div class="">
 				 			<article>
-								<h2 style = "text-align:center">Insert Order Data into Database</h2>
+
 								<?php
 									$conn = OpenCon();
 									/*Change the line below to our timezone!*/
