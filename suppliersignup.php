@@ -44,6 +44,82 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				if(mysqli_query($conn, $insert))
 				{
 					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+									
+									use PHPMailer\PHPMailer\PHPMailer;
+									use PHPMailer\PHPMailer\Exception;
+									
+									/* Exception class. */
+									require 'PHPMailer-master\src\Exception.php';
+									
+									/* The main PHPMailer class. */
+									require 'PHPMailer-master\src\PHPMailer.php';
+									
+									/* SMTP class, needed if you want to use SMTP. */
+									require 'PHPMailer-master\src\SMTP.php';
+									
+									/* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
+									$mail = new PHPMailer(TRUE);
+
+									/**Value is supplierid coming from supplierloginaction.php**/
+									$suppID = $_SESSION['login_supplier'];						
+
+									$sql1 = "SELECT * FROM `supplier` s, `employee` e
+											WHERE s.empid=e.empid";
+									
+									$result1 = $conn->query($sql1);
+
+									$val = array();
+
+									/* Retrieve data from db. Cannot use fetch_assoc() */
+									if($result1->num_rows > 0){
+										while($row = mysqli_fetch_array($result1)){
+											$val[] = $row;
+										}						
+									}
+									else {
+										$val = [];
+									}
+
+									/* Get empEmail and empfname from $val */
+									foreach($val as $row){
+										$email = $row["supplieremail"];
+										$name = $row["suppliername"];
+									}
+
+									try {
+										//Server settings
+										//$mail->SMTPDebug = 2;                                      // Enable verbose debug output
+										$mail->isSMTP();                                            // Set mailer to use SMTP
+										$mail->Host       = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
+										$mail->SMTPAuth   = true;                                 // Enable SMTP authentication
+										$mail->Username   = 'nursyahirahamirahariffin@gmail.com';// SMTP username
+										$mail->Password   = 'Android00';                        // SMTP password
+										$mail->SMTPSecure = 'tls';                             // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
+										$mail->Port       = 587;                              // TCP port to connect to
+									
+										//Recipients
+										$mail->setFrom('admin@example.com', $suppID);
+										$mail->addAddress($email, $name); 
+									
+										// Attachments
+										//$mail->addAttachment('/home/cpanelusername/attachment.txt');          // Add attachments
+										//$mail->addAttachment('/home/cpanelusername/image.jpg', 'new.jpg');    // Optional name
+										//$mail->addAttachment('email.html');  
+						
+										// Content
+										$mail->isHTML(true);                                  // Set email format to HTML
+										$mail->Subject = 'Supplier Account Successfully Created';
+										$mail->Body    = file_get_contents('email.html');
+										//$mail->Body    = include('email.html');
+										$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+										$mail->send();
+										echo '';
+									
+									}
+									catch (Exception $e) {
+										echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+									}
 				}
 				else
 				{
