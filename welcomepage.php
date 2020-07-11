@@ -52,11 +52,6 @@ http://www.tooplate.com/view/2099-scenic
 
           <!-- NAVBAR HEADER -->
           <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
                <!-- lOGO -->
                <a class="navbar-brand">Tomatus Station Melaka</a>
           </div>
@@ -64,7 +59,6 @@ http://www.tooplate.com/view/2099-scenic
           <!-- MENU LINKS -->
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
-					<li><a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
                     <li><a href="#more" class="smoothScroll">About</a></li>  
                     <li><a href="#more" class="dropdown">Contact</a></li>
                </ul>

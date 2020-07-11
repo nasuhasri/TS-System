@@ -37,13 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			if(!empty($vuserid) && !empty($vuserfname) && !empty($vuserlname) && !empty($vuseremail) && !empty($vusertell)  && !empty($vusersalary) && !empty($vuserpass))
 			{
 
-				$pass = password_hash($vuserpass, PASSWORD_BCRYPT);
-				// '$vuserpass'
+				$pass = password_hash($vuserpass, PASSWORD_DEFAULT);
+
 				$insert = "INSERT INTO `employee`(`empid`,`empfname`,`emplname`,`empEmail`,`emptellno`,`empsalary`,`emppwd`) VALUES('$vuserid','$vuserfname','$vuserlname','$vuseremail','$vusertell','$vusersalary','$vuserpass')";
 
 				if(mysqli_query($conn, $insert))
 				{
 					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+					
 					
 				}
 				else

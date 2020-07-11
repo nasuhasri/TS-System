@@ -42,8 +42,7 @@
 
                <!-- Logout button & register button at the top -->
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-                    <a href="signup.php" class="btn btn-danger square-btn-adjust">Employee Registration</a> 
-					<a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
+                    <a href="suppliersignup.php" class="btn btn-danger square-btn-adjust">Supplier Registration</a> 
 					<a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
                 

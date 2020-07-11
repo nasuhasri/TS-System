@@ -47,16 +47,11 @@
           <div class="navbar custom-navbar navbar-fixed-top" role="navigation">
                <div class="container">
 
-                    <!-- NAVBAR HEADER -->
-                    <div class="navbar-header">
-                         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                         </button>
-                         <!-- lOGO -->
-                         <a href="welcomepage.php" class="navbar-brand">Tomatus Station Melaka</a>
-                    </div>
+          <!-- NAVBAR HEADER -->
+          <div class="navbar-header">
+               <!-- lOGO -->
+               <a href="welcomepage.php" class="navbar-brand">Tomatus Station Melaka</a>
+          </div>
 
                     <!-- MENU LINKS -->
                     <div class="collapse navbar-collapse">
