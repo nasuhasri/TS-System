@@ -95,7 +95,7 @@
                                                   //output data
                                                   if($result->num_rows > 0)
                                                   {
-													  $pwdCheck = password_verify($empPassword, $row['emppwd']);
+													  
                                                        while($row=$result->fetch_assoc())
                                                        {
                                                             $_SESSION['login_user']=$empID;
