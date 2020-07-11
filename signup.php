@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<link rel="shortcut icon" href="images/favicon.ico" />
-</head>
-
-</html>
 <?php
 	
 $conn = mysqli_connect("localhost","root","","order_management") or die("Database Not Connected");
 
 
-if($_SERVER['REQUEST_METHOD'] == 'PeOST')
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
 	if(isset($_POST['submit']))
@@ -61,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 			}
 			else
 			{
-				echo "<script type='text/javascript'>alert('Empty Data!')</script>";
+				echo "<script type='text/javascript'>alert('Empty field found!')</script>";
 			}
 
 		}
@@ -79,6 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="shortcut icon" href="images/favicon.ico" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Register User</title>
@@ -119,11 +112,9 @@ if($_SERVER['REQUEST_METHOD'] == 'PeOST')
 					<input type="Password" name="password" placeholder="*******" class="form-control">
 				</div>
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
-				<div>
 				<br>
-				<input type="submit" style="background-color:green;color:white;width:150px; height:40px;" value="Submit">
-				<input type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back">
-				</div>
+				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
+				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='homepage.php'" />
 			</form>
 			<h3 style="color:red;"><?php echo @$msg; ?></h3>
 		</div>

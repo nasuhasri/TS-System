@@ -122,21 +122,6 @@ http://www.tooplate.com/view/2099-scenic
 </section>
 
 
-<!-- SUPPLIER LOGIN -->
-<section id="supplierlogin" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <div class="about-info">
-   
-                    </div>
-               </div>
-
-          </div>
-     </div>
-</section>
-
 <footer>
 <?php include 'footer.php';?>
 </footer>

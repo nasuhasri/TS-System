@@ -58,7 +58,7 @@
                               <span class="icon icon-bar"></span>
                          </button>
                          <!-- lOGO -->
-                         <a href="index.html" class="navbar-brand">Tomatus Station Melaka</a>
+                         <a href="welcomepage.php" class="navbar-brand">Tomatus Station Melaka</a>
                     </div>
 
                     <!-- MENU LINKS -->
@@ -95,6 +95,7 @@
                                                   //output data
                                                   if($result->num_rows > 0)
                                                   {
+													  $pwdCheck = password_verify($empPassword, $row['emppwd']);
                                                        while($row=$result->fetch_assoc())
                                                        {
                                                             $_SESSION['login_user']=$empID;

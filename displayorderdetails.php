@@ -39,14 +39,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Tomatus Station</a> 
+                    <a class="navbar-brand" href="homepage.php">Tomatus Station</a> 
                 </div>
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
                     <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
 
                 <div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-                    <a href="tomatus.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
+                    <a href="homepage.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
                 </div>
 			</nav>
 			
@@ -64,11 +64,11 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Order Management System</h1>
+                            <h1 style="text-align:center">Order Details From Database</h1>
 			
 							<!-- INNER PAGE CONTENT  -->
 							<div class = "content">
-								<h2 style="text-align:center">Display Order Details From Database</h2>
+								
 								<br>
 								<table class="table">
 									<tr>
