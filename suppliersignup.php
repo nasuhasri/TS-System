@@ -118,8 +118,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				</div>
 				<input type="checkbox" name="term"> I Follow All Term & Condition <br>
 				<div>
-				<input type="submit" style="background-color:green;color:white;width:150px; height:40px;" value="Submit">
-				<input type="button" onclick="history.back()" style="background-color:red;color:white;width:150px; height:40px;" value="Back">
+				<br>
+				<input type="submit" name="submit" value="Submit" class="btn btn-lg btn-primary mt-3"> <br>
+				<input type="button" value="Back" class="btn btn-lg btn-primary mt-3" onclick="window.location.href='homepage.php'" />
 				</div>
 			</form>
 			<h3 style="color:red;"><?php echo @$msg; ?></h3>
