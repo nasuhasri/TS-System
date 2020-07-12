@@ -51,7 +51,7 @@
                 </div>
 
                 <div style="color: white; padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
-                    <a class="btn btn-danger square-btn-adjust">Order Management System</a> 
+                  <a href="homepage.php"class="btn btn-danger square-btn-adjust">Order Management System</a> 
                 </div>
             </nav>
             <!-- END NAV TOP  -->
