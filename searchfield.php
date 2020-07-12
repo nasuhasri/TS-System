@@ -19,6 +19,7 @@
     <head>
         <head>
             <link rel="shortcut icon" href="images/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="contentStyle.css">
         </head>
         <header>
             <?php include 'header.php'; ?>
@@ -70,7 +71,7 @@
 							<br>
                         </div>
         
-		                <div class="center">
+		                <div class="content">
 				            <article>
 	                            
 	                            <form action="searchfieldaction.php" id="form" method="GET">

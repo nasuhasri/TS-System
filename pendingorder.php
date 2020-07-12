@@ -101,7 +101,7 @@
                                             $page1 = 0;
                                     }
                                     else {
-                                        $page1= ($page*4)-4;
+                                        $page1= ($page*10)-10;
                                     }
 
                                     $sql = "SELECT * FROM `orders` o, `order_product` op, `product` p
@@ -110,7 +110,7 @@
                                             and o.orderstatus = 'PENDING'
                                             and o.empid = $empID
                                             ORDER BY o.orderdate, o.ordertime DESC
-                                            limit $page1,4";
+                                            limit $page1,10";
 
                                     //$sql = "SELECT * FROM `invoice` i";
                                     $result = $conn->query($sql);
@@ -144,7 +144,9 @@
 
                                     echo "</table>";
 
-                                    $sql2 = "select count(*) FROM `orders`";
+                                    $sql2 = "SELECT count(*) FROM `orders` o 
+                                            WHERE o.orderstatus = 'PENDING'
+                                            AND o.empID = $empID";
                                     $result2 = $conn->query($sql2);
                                     $row = $result2 ->fetch_row();
                                     $count = ceil($row[0]/10);

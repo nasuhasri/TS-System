@@ -83,14 +83,13 @@
                                                   
                                                   $empID=$_POST["empID"];
                                                   $empPassword=$_POST["empPassword"];
-                                                  
-                                                  $sql="SELECT * FROM employee WHERE empid=$empID and emppwd='$empPassword'";
+
+                                                  $sql="SELECT * FROM `employee` e WHERE empid=$empID and emppwd='$empPassword'";
                                                   
                                                   $result=$conn->query($sql);
                                                   //output data
                                                   if($result->num_rows > 0)
-                                                  {
-													  
+                                                  {													  
                                                        while($row=$result->fetch_assoc())
                                                        {
                                                             $_SESSION['login_user']=$empID;

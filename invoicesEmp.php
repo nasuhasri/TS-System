@@ -114,7 +114,7 @@
                                             $page1 = 0;
                                     }
                                     else {
-                                        $page1= ($page*4)-4;
+                                        $page1= ($page*10)-10;
                                     }
 
                                     $sql = "SELECT * FROM `invoice` i, `orders` o, `order_product` op, `product` p
@@ -157,10 +157,12 @@
 
                                     echo "</table>";
 
-                                    $sql2 = "select count(*) FROM invoice";
+                                    $sql2 = "SELECT count(*) FROM `orders` o
+                                            WHERE o.orderstatus = 'APPROVED'
+                                            AND o.empID = $empID";
                                     $result2 = $conn->query($sql2);
                                     $row = $result2 ->fetch_row();
-                                    $count = ceil($row[0]/4);
+                                    $count = ceil($row[0]/10);
                                     for($pageno=1;$pageno<=$count;$pageno++){
                                         ?><a href="invoicesEmp.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
                                     }

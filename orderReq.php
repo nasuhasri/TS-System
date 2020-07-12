@@ -116,7 +116,7 @@
                                                     $page1 = 0;
                                             }
                                             else {
-                                                $page1= ($page*4)-4;
+                                                $page1= ($page*5)-5;
                                             }
                                                             
                                             $sql = "SELECT *
@@ -127,7 +127,7 @@
                                                     AND o.orderstatus = 'PENDING'
                                                     AND s.supplierid = $suppID
                                                     ORDER BY o.orderdate, o.ordertime DESC
-                                                    limit $page1,4";
+                                                    limit $page1,5";
                                             $result = $conn->query($sql);
                                         
                                             if ($result->num_rows > 0) {
@@ -177,7 +177,7 @@
                                                     AND s.supplierid = $suppID";
                                             $result = $conn->query($sql2);
                                             $row = $result->fetch_row();
-                                            $count = ceil($row[0]/4);
+                                            $count = ceil($row[0]/5);
                                                             
                                             //insert into url
                                             for($pageno=1; $pageno<=$count; $pageno++){
