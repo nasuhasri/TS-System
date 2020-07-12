@@ -81,9 +81,10 @@
 										$conn = OpenCon();
 										/* $orderid get from orderReq.php */
 										$orderid = $_GET["orderid"];
-										$sql= "SELECT * from `orders` o, `order_product` op
+										$sql= "SELECT * from `orders` o, `order_product` op, `employee` e
 												where o.orderid = op.orderid
-												and o.orderid = $orderid";
+												and o.orderid = $orderid
+												AND o.empid = e.empid";
 										$result = $conn->query($sql);
 
 										if($result-> num_rows > 0) {
@@ -98,6 +99,7 @@
 												$totalPrice = $row["totalPrice"];								
 												$orderstatus = $row["orderstatus"];
 												$empid = $row["empid"];
+												$empname = $row["empfname"];
 												// echo "<table>";
 												echo "<tr>";
 												// 	echo "<td>Order ID</td>";
@@ -126,7 +128,7 @@
 												// echo"</tr>";
 												// echo "<tr>";
 												// 	echo "<td>Staff-In-Charge</td>";
-													echo"<td>$empid</td>";
+													echo"<td>$empid - $empname</td>";
 												echo"</tr>";
 											echo "</table>";
 											}
