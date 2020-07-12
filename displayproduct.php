@@ -134,9 +134,9 @@
 								$sql2 = "select count(*) FROM product";
 								$result = $conn->query($sql2);
 								$row = $result ->fetch_row();
-								$count = ceil($row[0]/4);
+								$count =ceil($row[0]/4);
 								for($pageno=1;$pageno<=$count;$pageno++){
-									?><a href="displayproduct.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " "; ?></a><?php
+									?><a href="displayproduct.php?page=<?php echo $pageno; ?>" style="text-decoration:whites"> <?php echo $pageno. " "; ?></a><?php
 								}
 
 								CloseCon($conn);
