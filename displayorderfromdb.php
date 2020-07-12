@@ -110,7 +110,7 @@
                                             FROM `orders` ord, `order_product` op 
                                             WHERE ord.orderid = op.orderid
                                             AND ord.empID = $empID
-                                            ORDER BY ord.orderdate, ord.ordertime DESC
+                                            ORDER BY ord.orderdate DESC
                                             limit $page1, 10";
                                     $result = $conn->query($sql);
                                     
@@ -150,7 +150,8 @@
                                     
                                     //count number of record
                                     //to calc the possible page we may have
-                                    $sql2 = "select count(*) FROM `orders`";
+                                    $sql2 = "SELECT count(*) FROM `orders` o
+                                            WHERE o.empid = $empID";
                                     $result = $conn->query($sql2);
                                     $row = $result->fetch_row();
                                     $count = ceil($row[0]/10);

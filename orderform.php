@@ -19,6 +19,8 @@
 	<head>
 		<head>
 			<link rel="shortcut icon" href="images/favicon.ico" />
+			<link rel="stylesheet" type="text/css" href="contentStyle.css">
+
 			<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 			
 			<script type="text/javascript">
@@ -59,10 +61,10 @@
 						/* No need to put window.location here as user will be only
 						   go to insertorderaction.php if everything is true */
 
-						// window.location.href= 'insertorderaction.php';
+						//window.location.href= 'insertorderaction.php';
 					}
 					else {
-						return false;
+						window.location.href= 'orderform.php';
 					}
 				}					
 			</script>

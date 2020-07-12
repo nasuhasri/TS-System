@@ -62,35 +62,49 @@
 							<br>
 							<br>
                         </div>
+
+                        <div class="content">
+                            <?php
+                                $conn = openCon();
+
+                                $orderid = $_GET['orderid'];
+
+                                $sql = "delete from orders where orderid = $orderid";
+                                $result = $conn->query($sql);
+                                
+                                if(! $result){
+                                    die('Could not delete data: '. mysqli_error($conn));
+                                }
+                                else {
+                                    //echo "\n";
+                                    //echo "Order with ID: "; echo $orderid; echo " has been deleted";
+                                }
+                            ?>
+                        </div>
+                        <!-- End of div content -->
+
+                        <div class="col-md-4 col-sm-4">
+							<div class="panel panel-success">
+								<div class="panel-heading"> Deleted Order Info</div>
+								<div class="panel-body">
+									<p>Details: </p>
+									<?php
+										echo "<p>Order with ID: "; echo $orderid; echo " has been successfully deleted</p>";
+									?>
+								</div>
+								<div class="panel-footer"> Your Satisfaction Is Our Priority </div>
+							</div>
+                        </div>
+
+                        <table class="table">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="button" value="Homepage" onclick="window.location.href='homepageSupp.php'" />
+                                </td>
+                            </tr>
+                        </table>
                     </div>              
                     <!-- END OF ROW  -->
-
-                    <div class="content">
-                        <?php
-                            $conn = openCon();
-
-                            $orderid = $_GET['orderid'];
-
-                            $sql = "delete from orders where orderid = $orderid";
-                            $result = $conn->query($sql);
-                            
-                            if(! $result){
-                                die('Could not delete data: '. mysqli_error($conn));
-                            }
-                            else {
-                                echo "\n";
-                                echo "Order with ID: "; echo $orderid; echo " has been deleted";
-                            }
-                        ?>
-                        <table class="table">
-							<tr>
-								<td colspan="2" align="center">
-									<input type="button" value="Homepage" onclick="homepageSupp.php" />
-								</td>
-							</tr>
-						</table>
-                    </div>
-                    
                 </div>
                 <!-- End of page-inner -->
             </div>
