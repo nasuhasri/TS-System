@@ -103,7 +103,7 @@
 								//$productid = $_GET["productID"];
 								$sql= "SELECT * from `product` p, `supplier` s
 										where p.supplierid = s.supplierid
-										and s.supplierid = $user_check
+										and s.supplierid = $suppID
 										limit $page1,4";
 										
 								$result = $conn ->query($sql);

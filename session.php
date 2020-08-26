@@ -2,6 +2,9 @@
 	include 'connOrder.php';
 	$conn1 = OpenCon();
 	session_start();
+
+	// Buat status untuk user
+	// $_SESSION["status"] = $_GET["status"];
 	
 	 /**Value is staffid coming from employeeloginaction.php**/
 	$user_check = $_SESSION['login_user'];

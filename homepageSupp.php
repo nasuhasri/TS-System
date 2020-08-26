@@ -187,7 +187,7 @@
                                             echo "Error in fetching data";
                                         }
                                         
-                                            CloseCon($conn);			
+                                        CloseCon($conn);			
                                     ?>
                                     <p class="main-text"><?php echo "<a href=displaypendingorderSupp.php>Pending Order</a>" ?></p>                                   
                                     <p class="main-text"><?php echo $pending; ?></p>

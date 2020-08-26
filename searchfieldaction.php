@@ -79,30 +79,6 @@
 										$searching=$_GET["search"];
 
 										$conn=OpenCon();
-										
-										//get page number
-										$page=0;
-										
-										// //set variable
-										// if(isset($_GET["page"])==true)
-										// {
-										// 	$page=$_GET["page"];
-										// }
-										// else
-										// {
-										// 	$page=0;
-										// }
-										
-										// //algo for pagination in sql
-										// if($page=="" || $page=="1")
-										// {
-										// 	$page1=0;
-										// }
-							
-										// else
-										// {
-										// 	$page1=($page*7)-7;
-										// }
 
 										//get page number
 										$page = 0;

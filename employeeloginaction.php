@@ -97,9 +97,6 @@
                                                             header("location:homepage.php");
                                                        }
                                                   }
-                                                  // else {
-                                                  // 	header("location:emplogin.php");						
-                                                  // }
 
                                                   CloseCon($conn);
                                              ?>
@@ -151,11 +148,8 @@
           <section id="supplierlogin" class="parallax-section">
                <div class="container">
                     <div class="row">
-
                          <div class="col-md-offset-1 col-md-10 col-sm-12">
-                              <div class="about-info">
-          
-                              </div>
+                              <div class="about-info"></div>
                          </div>
 
                     </div>

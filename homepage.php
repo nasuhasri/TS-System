@@ -128,6 +128,7 @@
                                     $sql = "SELECT count(i.invoiceid) AS totalinvoice
                                             FROM `orders` o, `invoice` i
                                             WHERE o.orderid = i.orderid
+                                            AND o.orderstatus = 'APPROVED'
                                             AND o.empID = $empID";
                                     $result = $conn->query($sql);
 
